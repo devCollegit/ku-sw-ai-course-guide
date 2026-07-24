@@ -104,7 +104,27 @@ function listHtml(items, empty = "등록된 정보가 없습니다.") {
 }
 function assessmentHtml(course) {
   if (!course.assessment) return '<p class="muted">평가 비율이 공개되지 않았습니다.</p>';
-  const labels = { assignments_percent: "과제", term_project_percent: "텀 프로젝트", midterm_exam_or_project_percent: "중간시험·프로젝트", midterm_exam_percent: "중간고사", final_exam_percent: "기말고사", attendance_percent: "출석", participation_percent: "참여도", assignments_and_project_percent: "과제·프로젝트", unallocated_percent: "미확인 배점" };
+  const labels = {
+    ongoing_assignments_percent: "수시과제",
+    midterm_exam_percent: "중간고사",
+    final_exam_percent: "기말고사",
+    participation_percent: "참여도",
+    attendance_percent: "출석",
+    team_project_percent: "팀프로젝트",
+    exam_percent: "시험",
+    class_participation_and_assignments_percent: "수업 참여도 및 과제",
+    presentation_assignment_percent: "발표과제",
+    midterm_assignment_percent: "중간과제",
+    final_assignment_percent: "기말과제",
+    project_percent: "프로젝트",
+    report_percent: "보고서",
+    final_presentation_percent: "기말발표",
+    assignments_percent: "과제",
+    term_project_percent: "텀 프로젝트",
+    midterm_exam_or_project_percent: "중간시험·프로젝트",
+    assignments_and_project_percent: "과제·프로젝트",
+    unallocated_percent: "미확인 배점",
+  };
   const facts = Object.entries(course.assessment).filter(([k, v]) => k.endsWith("_percent") && typeof v === "number").map(([k, v]) => `<div class="fact-card"><strong>${v}%</strong><span>${labels[k] || k}</span></div>`).join("");
   return `<div class="detail-grid">${facts}</div>${course.assessment.note ? `<div class="notice-box">${escapeHtml(course.assessment.note)}</div>` : ""}`;
 }

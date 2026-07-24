@@ -1,1361 +1,1446 @@
-﻿window.COURSES = [
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC102",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "텍스트마이닝",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "월",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 205호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "강성구"
-                       },
-        "overview":  "머신러닝 기법을 사용하여 대규모 텍스트 데이터의 표현, 모델링 및 분석 방법을 학습한다. 희소 모델에서 단어 임베딩과 트랜스포머 기반 문맥 표현으로 확장하고, 텍스트 분류, 준지도·다중 작업 학습, 도메인 적응, 어휘·뉴럴·LLM 향상 검색을 실제 문제에 적용한다.",
-        "prerequisite_knowledge":  [
-                                        "머신러닝에 대한 기본적인 이해",
-                                        "딥러닝에 대한 기본적인 이해"
-                                    ],
-        "objectives":  [
-                           "머신러닝 기반 대규모 텍스트 데이터의 표현, 모델링, 분석에 필요한 핵심 개념과 방법론 이해",
-                           "희소 모델, 단어 임베딩, 트랜스포머 기반 문맥 언어 모델 등 다양한 텍스트 표현 기술 습득",
-                           "텍스트 분류, 준지도 학습, 다중 작업 학습, 도메인 적응 등 심화 기법 학습",
-                           "어휘 검색, 뉴럴 검색, LLM 향상 검색을 포함한 현대적 검색 시스템 이해"
-                       ],
-        "topics":  [
-                       "텍스트 표현",
-                       "희소 모델",
-                       "단어 임베딩",
-                       "트랜스포머",
-                       "문맥 언어 모델",
-                       "텍스트 분류",
-                       "준지도 학습",
-                       "다중 작업 학습",
-                       "도메인 적응",
-                       "어휘 검색",
-                       "뉴럴 검색",
-                       "LLM 향상 검색"
-                   ],
-        "references":  [
-                           "Jurafsky and Martin, Speech and Language Processing",
-                           "Hamilton, Graph Representation Learning"
-                       ],
-        "assessment":  {
-                           "midterm_exam_percent":  50,
-                           "final_exam_percent":  50
-                       },
-        "weekly_plan_partial":  [
-                                    "강의 소개 및 개요",
-                                    "텍스트 표현 방식 1",
-                                    "텍스트 표현 방식 2",
-                                    "텍스트 표현 방식 3",
-                                    "텍스트 분류 1",
-                                    "텍스트 분류 2",
-                                    "관계 정보 활용 기법 2",
-                                    "관계 정보 활용 기법 3",
-                                    "정보 검색 1",
-                                    "정보 검색 2",
-                                    "정보 검색 3",
-                                    "정보 검색 4",
-                                    "기말고사"
-                                ],
-        "data_status":  "partial"
+window.COURSES = [
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC102",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "텍스트마이닝",
+    "credits": 2,
+    "schedule": {
+      "day": "월",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 205호",
+      "delivery": "대면"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC105",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "소셜미디어분석",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 205호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "박정배"
-                       },
-        "overview":  "빅데이터의 개념, 수집, 저장, 처리, 분석 방법론 및 도구를 학습하고 LLM을 활용한 실제 데이터 분석과 시각화를 수행한다.",
-        "objectives":  [
-                           "소셜미디어분석의 개념과 중요성 이해",
-                           "다양한 빅데이터 수집, 저장, 처리 기법 학습",
-                           "LLM을 활용한 실제 데이터 분석 및 시각화 기반 의사결정 역량 배양"
-                       ],
-        "topics":  [
-                       "소셜미디어분석",
-                       "빅데이터 수집",
-                       "빅데이터 저장",
-                       "빅데이터 처리",
-                       "프롬프트 엔지니어링",
-                       "바이브코딩",
-                       "LLM 활용 데이터 분석",
-                       "데이터 시각화",
-                       "팀 프로젝트"
-                   ],
-        "assessment":  {
-                           "midterm_exam_percent":  40,
-                           "final_exam_percent":  40,
-                           "attendance_percent":  20
-                       },
-        "weekly_plan_partial":  [
-                                    "프롬프트 엔지니어링",
-                                    "바이브코딩 개념",
-                                    "중간고사",
-                                    "소셜미디어 데이터 시각화",
-                                    "생성형 언어 모델 소개 1",
-                                    "생성형 언어 모델 소개 2",
-                                    "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
-                                    "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
-                                    "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
-                                    "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
-                                    "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
-                                    "기말고사"
-                                ],
-        "project":  {
-                        "team_project":  true,
-                        "presentation":  true
-                    },
-        "data_status":  "partial"
+    "instructor": {
+      "name": "강성구"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC108",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "통계적학습개론",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "정보통신관 604호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "이창희"
-                       },
-        "overview":  "확률·통계, 선형대수, 최적화 이론을 활용하여 통계 기반 기계학습의 이론적 기반, 알고리즘, 분석 방법론을 심도 있게 다룬다.",
-        "topics":  [
-                       "True Risk Minimization",
-                       "Empirical Risk Minimization",
-                       "Maximum Likelihood Estimation",
-                       "Maximum A Posteriori Estimation",
-                       "선형회귀",
-                       "다항회귀",
-                       "로지스틱 회귀",
-                       "재표본추출",
-                       "모델 선택",
-                       "정규화",
-                       "트리 기반 모델",
-                       "Support Vector Machines",
-                       "Principal Component Analysis",
-                       "생존분석",
-                       "Python"
-                   ],
-        "prerequisite_knowledge":  [
-                                       "확률 및 통계",
-                                       "선형대수",
-                                       "최적화 이론",
-                                       "Python"
-                                   ],
-        "textbooks":  [
-                          {
-                              "title":  "An Introduction to Statistical Learning with Applications in Python",
-                              "authors":  "Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, Jonathan Taylor",
-                              "url":  "https://www.statlearning.com/"
-                          }
-                      ],
-        "weekly_plan_partial":  [
-                                    "Introduction",
-                                    "Recap Probability and Statistics",
-                                    "Maximum Likelihood Estimation",
-                                    "True Risk Minimization vs Empirical Risk Minimization",
-                                    "Assignment #1",
-                                    "Linear Regression Part 1",
-                                    "Linear Regression Part 2 and Polynomial Regression",
-                                    "Assignment #2",
-                                    "Logistic Regression Part 1"
-                                ],
-        "assignments":  {
-                            "programming_language":  "Python",
-                            "confirmed_count_minimum":  2
-                        },
-        "data_status":  "partial"
+    "overview": "머신러닝 기법을 사용하여 대규모 텍스트 데이터의 표현, 모델링 및 분석 방법을 학습한다. 희소 모델에서 단어 임베딩과 트랜스포머 기반 문맥 표현으로 확장하고, 텍스트 분류, 준지도·다중 작업 학습, 도메인 적응, 어휘·뉴럴·LLM 향상 검색을 실제 문제에 적용한다.",
+    "prerequisite_knowledge": [
+      "머신러닝에 대한 기본적인 이해",
+      "딥러닝에 대한 기본적인 이해"
+    ],
+    "objectives": [
+      "머신러닝 기반 대규모 텍스트 데이터의 표현, 모델링, 분석에 필요한 핵심 개념과 방법론 이해",
+      "희소 모델, 단어 임베딩, 트랜스포머 기반 문맥 언어 모델 등 다양한 텍스트 표현 기술 습득",
+      "텍스트 분류, 준지도 학습, 다중 작업 학습, 도메인 적응 등 심화 기법 학습",
+      "어휘 검색, 뉴럴 검색, LLM 향상 검색을 포함한 현대적 검색 시스템 이해"
+    ],
+    "topics": [
+      "텍스트 표현",
+      "희소 모델",
+      "단어 임베딩",
+      "트랜스포머",
+      "문맥 언어 모델",
+      "텍스트 분류",
+      "준지도 학습",
+      "다중 작업 학습",
+      "도메인 적응",
+      "어휘 검색",
+      "뉴럴 검색",
+      "LLM 향상 검색"
+    ],
+    "references": [
+      "Jurafsky and Martin, Speech and Language Processing",
+      "Hamilton, Graph Representation Learning"
+    ],
+    "assessment": {
+      "midterm_exam_percent": 50,
+      "final_exam_percent": 50
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC115",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "고급기계학습",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 604호",
-                         "delivery":  "비대면"
-                     },
-        "instructor":  {
-                           "name":  "이병준"
-                       },
-        "overview":  "최신 동향에 맞춰 인공신경망을 기반으로 하는 기계학습 전반을 학습한다.",
-        "topics":  [
-                       "인공신경망",
-                       "역전파",
-                       "Stochastic Gradient Descent",
-                       "일반화",
-                       "모델 선택",
-                       "하이퍼파라미터 튜닝",
-                       "정규화",
-                       "Convolution blocks",
-                       "Recurrent blocks",
-                       "Attention"
-                   ],
-        "weekly_plan_partial":  [
-                                    "Introduction",
-                                    "Backpropagation",
-                                    "Stochastic Gradient Descent",
-                                    "Generalization and Model Selection",
-                                    "Hyperparameter tuning",
-                                    "Normalization and Convolution blocks",
-                                    "Recurrent blocks and Attention"
-                                ],
-        "data_status":  "partial"
+    "weekly_plan_partial": [
+      "강의 소개 및 개요",
+      "텍스트 표현 방식 1",
+      "텍스트 표현 방식 2",
+      "텍스트 표현 방식 3",
+      "텍스트 분류 1",
+      "텍스트 분류 2",
+      "관계 정보 활용 기법 2",
+      "관계 정보 활용 기법 3",
+      "정보 검색 1",
+      "정보 검색 2",
+      "정보 검색 3",
+      "정보 검색 4",
+      "기말고사"
+    ],
+    "data_status": "partial",
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC105",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "소셜미디어분석",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 205호",
+      "delivery": "대면"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC116",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "데이터과학개론",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "월",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "애기능생활관 301호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "석흥일"
-                       },
-        "overview":  "데이터과학과 기계학습의 기초를 다루며, 분류·회귀·군집화 알고리즘을 이론과 구현 양면에서 학습하고 데이터에서 유용한 정보를 추출하여 지능형 시스템 개발에 활용한다.",
-        "topics":  [
-                       "Machine Learning Landscape",
-                       "End-to-End Machine Learning Project",
-                       "데이터 탐색 및 시각화",
-                       "모델 선택·학습·미세조정",
-                       "이진 분류",
-                       "다중 클래스·다중 레이블·다중 출력 분류",
-                       "성능 평가",
-                       "선형회귀",
-                       "로지스틱 회귀",
-                       "Gradient Descent",
-                       "정규화 선형 모델",
-                       "Support Vector Machines",
-                       "Perceptron",
-                       "Multi-Layer Perceptron",
-                       "Backpropagation",
-                       "Decision Trees",
-                       "Ensemble Learning",
-                       "Random Forests",
-                       "Bagging",
-                       "Boosting",
-                       "차원축소",
-                       "Principal Component Analysis",
-                       "K-means Clustering",
-                       "Gaussian Mixtures"
-                   ],
-        "prerequisite_knowledge":  [
-                                       "Python 프로그래밍",
-                                       "선형대수 기초",
-                                       "확률 및 통계 기초"
-                                   ],
-        "textbooks":  [
-                          {
-                              "title":  "Hands-On Machine Learning with Scikit-Learn and TensorFlow",
-                              "edition":  "2nd",
-                              "authors":  "Aurélien Géron",
-                              "publisher":  "O\u0027Reilly",
-                              "year":  2019
-                          },
-                          {
-                              "title":  "Supplementary Lecture Notes"
-                          }
-                      ],
-        "weekly_plan":  [
-                            "Machine Learning Landscape",
-                            "End-to-End Machine Learning Project",
-                            "Classification",
-                            "Training Models",
-                            "Support Vector Machines",
-                            "Introduction to Artificial Neural Networks",
-                            "Decision Trees",
-                            "Ensemble Learning and Random Forests",
-                            "Dimensionality Reduction",
-                            "Unsupervised Learning Techniques"
-                        ],
-        "assessment":  {
-                           "assignments_percent":  30,
-                           "term_project_percent":  30,
-                           "midterm_exam_or_project_percent":  30,
-                           "attendance_percent":  10
-                       },
-        "assignments":  {
-                            "programming_language":  "Python",
-                            "programming_assignment_count":  "3-4"
-                        },
-        "project":  {
-                        "team_project":  true,
-                        "presentation":  true,
-                        "presentation_mode":  "온라인",
-                        "q_and_a":  true,
-                        "midterm_project":  "개인 경쟁"
-                    },
-        "source_file":  "Syllabus.pdf",
-        "data_status":  "complete"
+    "instructor": {
+      "name": "박정배"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC117",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "데이터과학특론",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "애기능생활관 301호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "황영숙"
-                       },
-        "overview":  "데이터 수집·전처리·탐색적 분석부터 통계적 추론, 머신러닝, 딥러닝, 시계열·텍스트 분석, MLOps, 데이터 윤리까지 데이터과학 전 영역을 다루고, 자신의 직무 및 조직의 실제 문제와 연결한 과제와 프로젝트를 수행한다.",
-        "objectives":  [
-                           "통계적 추론, 머신러닝, 딥러닝, MLOps 등 데이터과학의 핵심 개념과 방법론을 체계적으로 이해",
-                           "실무 데이터를 활용하여 문제 정의부터 분석·모델링·해석까지 전 과정 수행",
-                           "조직의 실제 문제를 데이터과학적으로 재정의하고 해결하는 프로젝트 경험 축적",
-                           "데이터 기반 의사결정의 윤리적·사회적 쟁점 인식 및 책임 있는 대응"
-                       ],
-        "prerequisite_knowledge":  [
-                                       "필수 선수과목 없음",
-                                       "프로그래밍 기초 권장",
-                                       "통계 기초 권장"
-                                   ],
-        "topics":  [
-                       "CRISP-DM",
-                       "문제 정의",
-                       "데이터 수집 및 전처리",
-                       "데이터 품질",
-                       "탐색적 데이터 분석",
-                       "데이터 시각화",
-                       "통계적 추론",
-                       "가설검정",
-                       "신뢰구간",
-                       "A/B 테스트",
-                       "선형·다중·로지스틱 회귀",
-                       "모델 진단",
-                       "의사결정트리",
-                       "Random Forest",
-                       "Boosting",
-                       "모델 평가",
-                       "과적합",
-                       "교차검증",
-                       "K-means",
-                       "DBSCAN",
-                       "PCA",
-                       "t-SNE",
-                       "피처 엔지니어링",
-                       "파이프라인 자동화",
-                       "시계열 분석",
-                       "ARIMA",
-                       "딥러닝 개론",
-                       "CNN",
-                       "RNN",
-                       "NLP",
-                       "텍스트마이닝",
-                       "임베딩",
-                       "감성분석",
-                       "토픽모델링",
-                       "MLOps",
-                       "모델 배포",
-                       "버전관리",
-                       "모니터링",
-                       "데이터 드리프트",
-                       "데이터 윤리",
-                       "편향과 공정성",
-                       "개인정보보호",
-                       "설명가능 AI"
-                   ],
-        "textbooks":  [
-                          {
-                              "title":  "Python for Data Analysis",
-                              "authors":  "Wes McKinney",
-                              "publisher":  "O\u0027Reilly Media",
-                              "year":  2022,
-                              "isbn":  "9781098104030"
-                          },
-                          {
-                              "title":  "매주 배포되는 강의자료 및 실습 템플릿"
-                          },
-                          {
-                              "title":  "scikit-learn 및 pandas 공식 문서"
-                          }
-                      ],
-        "weekly_plan":  [
-                            "데이터과학 개관과 문제 정의",
-                            "데이터 수집과 전처리",
-                            "탐색적 데이터분석과 시각화",
-                            "통계적 추론 기초",
-                            "회귀분석",
-                            "프로젝트 착수 및 팀 구성",
-                            "지도학습: 분류·회귀 모델",
-                            "중간 점검 및 프로젝트 발표",
-                            "비지도학습",
-                            "피처 엔지니어링과 파이프라인",
-                            "시계열 분석",
-                            "딥러닝 개론",
-                            "NLP·텍스트마이닝 응용",
-                            "MLOps와 모델 운영",
-                            "데이터 윤리와 책임 있는 AI",
-                            "최종 프로젝트 발표"
-                        ],
-        "assessment":  {
-                           "attendance_percent":  10,
-                           "assignments_and_project_percent":  40,
-                           "midterm_exam_percent":  20,
-                           "participation_percent":  10,
-                           "unallocated_percent":  20,
-                           "note":  "표에 기재된 항목 합계가 80%로, 나머지 20% 배점은 강의계획서상 불명확함"
-                       },
-        "assignments":  {
-                            "items":  [
-                                          "프로젝트 제안서",
-                                          "SQL+pandas 기반 데이터 전처리 및 EDA 보고서",
-                                          "회귀모델 구축 및 계수 해석 리포트",
-                                          "군집화·차원축소 기반 고객·제품 세분화 보고서",
-                                          "시계열 매출·수요 예측 보고서",
-                                          "프로젝트 최종 발표자료"
-                                      ]
-                        },
-        "project":  {
-                        "team_project":  true,
-                        "presentation":  true,
-                        "workplace_problem_required":  true,
-                        "milestones":  [
-                                           "직무 문제를 데이터 문제로 재정의한 제안서",
-                                           "팀 구성과 KPI 설정",
-                                           "중간 발표",
-                                           "최종 보고서 및 발표",
-                                           "상호평가"
-                                       ]
-                    },
-        "source_file":  "2026_2학기 데이터과학특론_강의계획서.docx",
-        "data_status":  "complete"
+    "overview": "빅데이터의 개념, 수집, 저장, 처리, 분석 방법론 및 도구를 학습하고 LLM을 활용한 실제 데이터 분석과 시각화를 수행한다.",
+    "objectives": [
+      "소셜미디어분석의 개념과 중요성 이해",
+      "다양한 빅데이터 수집, 저장, 처리 기법 학습",
+      "LLM을 활용한 실제 데이터 분석 및 시각화 기반 의사결정 역량 배양"
+    ],
+    "topics": [
+      "소셜미디어분석",
+      "빅데이터 수집",
+      "빅데이터 저장",
+      "빅데이터 처리",
+      "프롬프트 엔지니어링",
+      "바이브코딩",
+      "LLM 활용 데이터 분석",
+      "데이터 시각화",
+      "팀 프로젝트"
+    ],
+    "assessment": {
+      "midterm_exam_percent": 40,
+      "final_exam_percent": 40,
+      "attendance_percent": 20
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC126",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "건강관리분석학의기초",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "정보통신관 604호",
-                         "delivery":  "비대면"
-                     },
-        "instructor":  {
-                           "name":  "서승호"
-                       },
-        "overview":  "웨어러블 센서, 바이오신호, 의료영상 등 건강관리 데이터를 이해하고 인간행동인식, 딥러닝, 멀티모달 학습, 생성형 AI를 활용한 분석 방법과 응용 사례를 학습한다.",
-        "objectives":  [
-                           "건강관리 데이터의 종류와 특성 및 데이터 분석의 기본 개념 이해",
-                           "웨어러블 센서·바이오신호·의료영상 데이터의 AI 기반 분석 기법 이해",
-                           "HAR·딥러닝·멀티모달 학습·생성형 AI의 원리와 응용 사례 학습",
-                           "최신 디지털 헬스케어 기술을 실제 데이터 분석 문제에 적용할 기초 역량 함양"
-                       ],
-        "topics":  [
-                       "디지털 헬스케어",
-                       "Healthcare AI",
-                       "웨어러블 센서",
-                       "IMU",
-                       "ECG",
-                       "EEG",
-                       "EMG",
-                       "PPG",
-                       "스마트워치",
-                       "모바일 헬스케어",
-                       "Human Activity Recognition",
-                       "Feature Engineering",
-                       "Classical Machine Learning",
-                       "CNN",
-                       "LSTM",
-                       "Transformer",
-                       "Self-Supervised Learning",
-                       "Foundation Models",
-                       "Domain Adaptation",
-                       "Continual Learning",
-                       "Test-Time Adaptation",
-                       "Open-set HAR",
-                       "Open-vocabulary HAR",
-                       "멀티모달 학습",
-                       "생성형 AI",
-                       "의료영상 AI"
-                   ],
-        "datasets":  [
-                         "PAMAP2",
-                         "Opportunity"
-                     ],
-        "references":  [
-                           {
-                               "title":  "Artificial intelligence in healthcare",
-                               "authors":  "Kun-Hsing Yu, Andrew L. Beam, Isaac S. Kohane",
-                               "publication":  "Nature Biomedical Engineering",
-                               "year":  2018
-                           },
-                           {
-                               "title":  "Past, present, and future of sensor-based human activity recognition using wearables: A surveying tutorial on a still challenging task",
-                               "authors":  "Harish Haresamudram, Chi Ian Tang, Sungho Suh, Paul Lukowicz, Thomas Ploetz",
-                               "publication":  "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
-                               "year":  2025
-                           }
-                       ],
-        "weekly_plan_partial":  [
-                                    "Introduction to Healthcare Analytics",
-                                    "Wearable Sensors and Healthcare Data",
-                                    "Human Activity Recognition I",
-                                    "Human Activity Recognition II",
-                                    "Advanced Topics in HAR"
-                                ],
-        "assignments":  {
-                            "items":  [
-                                          {
-                                              "title":  "Healthcare AI 기술 조사 및 응용 사례 분석",
-                                              "description":  "Wearable AI, Medical Imaging AI, Foundation Models 등 관심 기술의 원리·응용·최신 연구 동향 분석",
-                                              "format":  "A4 5-7페이지 PDF",
-                                              "submission":  "LMS",
-                                              "due_date":  "2026-12-03"
-                                          }
-                                      ]
-                        },
-        "domain_tags":  [
-                            "헬스케어",
-                            "웨어러블",
-                            "바이오신호",
-                            "의료영상"
-                        ],
-        "data_status":  "partial"
+    "weekly_plan_partial": [
+      "프롬프트 엔지니어링",
+      "바이브코딩 개념",
+      "중간고사",
+      "소셜미디어 데이터 시각화",
+      "생성형 언어 모델 소개 1",
+      "생성형 언어 모델 소개 2",
+      "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
+      "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
+      "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
+      "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
+      "LLM을 활용한 데이터 분석 설계 팀 프로젝트 발표",
+      "기말고사"
+    ],
+    "project": {
+      "team_project": true,
+      "presentation": true
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "BDC129",
-        "section":  "00",
-        "department":  "빅데이터융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "빅데이터응용세미나II",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "정운오IT교양관 609호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "정연돈"
-                       },
-        "overview":  "2026학년도 2학기에는 데이터 익명화와 데이터 프라이버시를 주제로 국내외 개인정보보호 제도 및 관련 기술을 학습하고, 한 학기 동안 팀 프로젝트 또는 논문을 수행한다.",
-        "objectives":  [
-                           "데이터 익명화의 개념 이해",
-                           "데이터 익명화 기술과 방법 이해",
-                           "데이터 프라이버시 모델 이해",
-                           "국내외 개인정보보호 및 데이터 프라이버시 제도 이해",
-                           "데이터 익명화 기술의 실제 응용"
-                       ],
-        "topics":  [
-                       "개인정보보호",
-                       "데이터 익명화",
-                       "데이터 프라이버시",
-                       "국내외 개인정보보호 제도",
-                       "관계형 데이터 익명화",
-                       "프라이버시 모델",
-                       "익명화 기술 및 방법",
-                       "팀 프로젝트",
-                       "논문 작성"
-                   ],
-        "textbooks":  [
-                          {
-                              "title":  "데이터 익명화",
-                              "authors":  "김종선, 이혁기, 정기정, 정연돈",
-                              "publisher":  "휴먼사이언스",
-                              "year":  2018
-                          }
-                      ],
-        "weekly_plan_partial":  [
-                                    "강의 소개",
-                                    "데이터 익명화 개념 및 제도",
-                                    "관계형 데이터 익명화: 프라이버시 모델",
-                                    "관계형 데이터 익명화: 프라이버시 모델",
-                                    "관계형 데이터 익명화: 기술 및 방법"
-                                ],
-        "project":  {
-                        "team_project":  true,
-                        "paper_option":  true,
-                        "team_formation":  "개강 첫 수업"
-                    },
-        "registration_constraints":  [
-                                         "개강 첫 수업에 반드시 참석하여 강의 소개를 듣고 팀을 구성해야 함",
-                                         "첫 수업 참석 후 수강 취소는 가능",
-                                         "수강 정정기간 추가 신청은 불가능"
-                                     ],
-        "domain_tags":  [
-                            "개인정보",
-                            "프라이버시",
-                            "익명화",
-                            "데이터 거버넌스"
-                        ],
-        "data_status":  "partial"
+    "data_status": "partial",
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC108",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "통계적학습개론",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "정보통신관 604호",
+      "delivery": "대면"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "SWS125",
-        "section":  "00",
-        "department":  "소프트웨어보안학과",
-        "classification":  "전공선택",
-        "title_ko":  "산업시스템보안",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 B101호",
-                         "delivery":  "비대면 중심·일부 대면"
-                     },
-        "instructor":  {
-                           "name":  "최윤성"
-                       },
-        "overview":  "산업 자동화 및 제어시스템의 스마트화에 수반되는 보안 문제와 대응방안을 사례 중심으로 학습하고, 사고사례 분석을 통해 관련 보안 기술과 연구 동향을 이해한다.",
-        "objectives":  [
-                           "스마트 제조를 위한 ICT와 OT의 필요성 및 차이 이해",
-                           "산업 자동화·제어시스템의 특성과 보안 위협 이해",
-                           "IACS 보안 위협 대응을 위한 사이버보안 기술과 정책 설명",
-                           "OT·ICS 사고사례 분석 및 최신 연구 동향 이해"
-                       ],
-        "topics":  [
-                       "Smart Manufacturing",
-                       "ICT",
-                       "Operational Technology",
-                       "Industrial Automation and Control Systems",
-                       "OT Security",
-                       "ICS Security",
-                       "보안 위협",
-                       "공격 시나리오",
-                       "침해사고 사례",
-                       "사이버보안 정책",
-                       "IEC 62443",
-                       "NIST SP 800-82"
-                   ],
-        "references":  [
-                           {
-                               "title":  "KS X IEC TS 62443-1-1:2009"
-                           },
-                           {
-                               "title":  "Industrial Cyber Security",
-                               "authors":  "Paskal Ackerman",
-                               "year":  2019
-                           },
-                           {
-                               "title":  "NIST SP 800-82 Rev. 3: Guide to Operational Technology Security",
-                               "year":  2023
-                           }
-                       ],
-        "weekly_plan_partial":  [
-                                    "Course Introduction",
-                                    "OT/ICS Security Problems",
-                                    "OT/ICS Security Threats",
-                                    "No Class",
-                                    "추석",
-                                    "OT/ICS Attack Scenarios",
-                                    "OT/ICS Incident Cases I",
-                                    "OT/ICS Incident Cases II"
-                                ],
-        "course_policies":  [
-                                "온라인 수업 시 수강생 비디오 항상 켜기",
-                                "일부 대면수업 예정",
-                                "일부 커리큘럼 변경 가능"
-                            ],
-        "domain_tags":  [
-                            "산업보안",
-                            "OT",
-                            "ICS",
-                            "스마트 제조"
-                        ],
-        "data_status":  "partial"
+    "instructor": {
+      "name": "이창희"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "SWS126",
-        "section":  "00",
-        "department":  "소프트웨어보안학과",
-        "classification":  "전공선택",
-        "title_ko":  "소프트웨어보안",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "애기능생활관 301호",
-                         "delivery":  "비대면"
-                     },
-        "instructor":  {
-                           "name":  "전유석"
-                       },
-        "overview":  "소프트웨어 취약점의 발생 원인과 공격 과정을 이해하고 탐지·분석·완화 기술을 학습하며, 중간고사 이후에는 최신 소프트웨어 보안 기술 동향을 발표 중심으로 다룬다.",
-        "objectives":  [
-                           "소프트웨어 보안 분야의 핵심 원리 이해",
-                           "소프트웨어 취약점의 발생 원인과 공격 과정 이해",
-                           "취약점 탐지·분석·완화 기술 학습",
-                           "다양한 보안 문제에 대한 해결책을 고안하는 능력 배양",
-                           "최신 소프트웨어 보안 기술 동향 조사 및 발표"
-                       ],
-        "topics":  [
-                       "Software Security",
-                       "Software Lifecycle",
-                       "Security Policies",
-                       "Software Bugs",
-                       "Exploitation",
-                       "Mitigations",
-                       "Software Testing",
-                       "Advanced Mitigations",
-                       "기술 동향 발표"
-                   ],
-        "weekly_plan_partial":  [
-                                    "Introduction to Software Security",
-                                    "Software Lifecycle and Security Policies",
-                                    "Software Bugs",
-                                    "Exploitation",
-                                    "Mitigations",
-                                    "Testing",
-                                    "Advanced Mitigations"
-                                ],
-        "presentation":  {
-                             "required":  true,
-                             "timing":  "중간고사 이후",
-                             "topic":  "최신 소프트웨어 보안 기술 동향"
-                         },
-        "domain_tags":  [
-                            "소프트웨어보안",
-                            "취약점",
-                            "공격",
-                            "완화",
-                            "보안테스트"
-                        ],
-        "data_status":  "partial"
+    "overview": "확률·통계, 선형대수, 최적화 이론을 활용하여 통계 기반 기계학습의 이론적 기반, 알고리즘, 분석 방법론을 심도 있게 다룬다.",
+    "topics": [
+      "True Risk Minimization",
+      "Empirical Risk Minimization",
+      "Maximum Likelihood Estimation",
+      "Maximum A Posteriori Estimation",
+      "선형회귀",
+      "다항회귀",
+      "로지스틱 회귀",
+      "재표본추출",
+      "모델 선택",
+      "정규화",
+      "트리 기반 모델",
+      "Support Vector Machines",
+      "Principal Component Analysis",
+      "생존분석",
+      "Python"
+    ],
+    "prerequisite_knowledge": [
+      "확률 및 통계",
+      "선형대수",
+      "최적화 이론",
+      "Python"
+    ],
+    "textbooks": [
+      {
+        "title": "An Introduction to Statistical Learning with Applications in Python",
+        "authors": "Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, Jonathan Taylor",
+        "url": "https://www.statlearning.com/"
+      }
+    ],
+    "weekly_plan_partial": [
+      "Introduction",
+      "Recap Probability and Statistics",
+      "Maximum Likelihood Estimation",
+      "True Risk Minimization vs Empirical Risk Minimization",
+      "Assignment #1",
+      "Linear Regression Part 1",
+      "Linear Regression Part 2 and Polynomial Regression",
+      "Assignment #2",
+      "Logistic Regression Part 1"
+    ],
+    "assignments": {
+      "programming_language": "Python",
+      "confirmed_count_minimum": 2
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "SWS128",
-        "section":  "00",
-        "department":  "소프트웨어보안학과",
-        "classification":  "전공선택",
-        "title_ko":  "소프트웨어분석",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "월",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 B101호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "박지혁"
-                       },
-        "overview":  "추상 해석, 제어 흐름 그래프, 포인터 분석을 포함하는 정적 프로그램 분석의 이론적 기반과 실제 알고리즘을 학습한다.",
-        "objectives":  [
-                           "정적 프로그램 분석의 이론적 원리 이해",
-                           "정적 분석 알고리즘 구현 역량 습득",
-                           "소프트웨어 정확성과 보안을 체계적으로 추론하는 능력 배양",
-                           "실무 소프트웨어에 프로그램 분석 기법 적용"
-                       ],
-        "topics":  [
-                       "Static Program Analysis",
-                       "Scala",
-                       "Syntax",
-                       "Semantics",
-                       "Control Flow Graphs",
-                       "Dataflow Analysis",
-                       "Abstract Interpretation",
-                       "Internal Domain Analysis",
-                       "Pointer Analysis",
-                       "Software Correctness",
-                       "Software Security"
-                   ],
-        "weekly_plan_partial":  [
-                                    "Introduction",
-                                    "Basics of Scala",
-                                    "Syntax and Semantics",
-                                    "Control Flow Graphs",
-                                    "Dataflow Analysis",
-                                    "Abstract Interpretation",
-                                    "Internal Domain Analysis"
-                                ],
-        "prerequisite_knowledge":  [
-                                       "프로그래밍 언어 기초",
-                                       "Scala는 수업에서 기초부터 소개"
-                                   ],
-        "domain_tags":  [
-                            "정적분석",
-                            "프로그램분석",
-                            "컴파일러",
-                            "소프트웨어정확성",
-                            "소프트웨어보안"
-                        ],
-        "data_status":  "partial"
+    "data_status": "partial",
+    "assessment": {
+      "ongoing_assignments_percent": 30,
+      "midterm_exam_percent": 30,
+      "final_exam_percent": 30,
+      "participation_percent": 10
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "AAI101",
-        "section":  "00",
-        "department":  "인공지능융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "인공지능개론",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "우정관 205호",
-                         "delivery":  "비대면"
-                     },
-        "instructor":  {
-                           "name":  "김학승"
-                       },
-        "overview":  "인공지능의 기본 개념을 이해하고 전통적인 인공지능부터 생성형 AI, 강화학습, 범용인공지능까지 폭넓게 살펴보는 입문 과목이다. 이후의 전문 과목에서 접할 주제와 개념을 조망하며, 인공지능과 머신러닝 핵심 개념에 이미 익숙한 학생에게는 수강을 권장하지 않는다.",
-        "objectives":  [
-                           "인공지능 연구의 핵심 개념 이해",
-                           "최근 인공지능 연구·개발 주제와 쟁점 이해",
-                           "전통적 인공지능과 현대 인공지능의 주요 응용 파악"
-                       ],
-        "topics":  [
-                       "인공지능 개론",
-                       "AI 기법",
-                       "AI 응용시스템",
-                       "머신러닝",
-                       "딥러닝",
-                       "생성형 AI",
-                       "강화학습",
-                       "범용인공지능",
-                       "AI 쟁점"
-                   ],
-        "prerequisite_knowledge":  [],
-        "prerequisite_status":  "선수지식 없음",
-        "references":  [
-                           "매 강의 제공 자료"
-                       ],
-        "assessment":  {
-                           "midterm_exam_percent":  40,
-                           "assignments_percent":  25,
-                           "term_project_percent":  25,
-                           "attendance_percent":  10,
-                           "note":  "중간고사는 대면 출석시험으로 진행하며, 학기말 팀 프로젝트는 발표 방식입니다."
-                       },
-        "assignments":  {
-                            "items":  [
-                                          "본인 관심 영역 또는 주제에 관한 영문 리뷰 페이퍼(3,000단어), 학기 말 제출",
-                                          "학기말 팀 프로젝트 발표(수강인원에 따라 운영 방식 조정)"
-                                      ]
-                        },
-        "project":  {
-                        "team_project":  true,
-                        "presentation":  true
-                    },
-        "weekly_plan":  [
-                            "Introduction & course overview",
-                            "Data types and tasks of AI",
-                            "Statistics recap",
-                            "Core concepts of machine learning I",
-                            "Core concepts of machine learning II",
-                            "Core concepts of deep learning I",
-                            "Core concepts of deep learning II",
-                            "Midterm exam",
-                            "Real-world applications of conventional AI techniques",
-                            "Generative AI",
-                            "Reinforcement learning",
-                            "Recent advancements in AI",
-                            "Contemporary issues of AI",
-                            "Toward artificial general intelligence",
-                            "Student presentation I",
-                            "Student presentation II"
-                        ],
-        "course_notes":  [
-                             "수업은 비대면 방식으로 진행",
-                             "중간고사는 대면 출석시험으로 시행",
-                             "법정공휴일 및 기타 상황에 따른 보강은 비대면 또는 녹화강의로 제공",
-                             "강의 일정과 내용은 수강인원에 따라 조정될 수 있음"
-                         ],
-        "credit_rules":  {
-                             "for_bdc_student":  "일반선택"
-                         },
-        "data_status":  "partial"
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC115",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "고급기계학습",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 604호",
+      "delivery": "비대면"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "AAI104",
-        "section":  "00",
-        "department":  "인공지능융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "확률과통계",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 B101호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "박성우"
-                       },
-        "overview":  "인공지능의 필수 기초 수학인 확률과 통계학을 학습하며 확률 기초, 확률변수, 표본통계 분포, 모수 추정, 가설검정, 회귀분석의 이론과 예제를 다룬다.",
-        "objectives":  [
-                           "확률의 기초 개념 이해",
-                           "확률변수와 표본통계 분포 이해",
-                           "모수 추정 방법 학습",
-                           "가설검정 이론과 예제 학습",
-                           "회귀분석 이론과 예제 학습"
-                       ],
-        "topics":  [
-                       "확률",
-                       "확률변수",
-                       "표본통계 분포",
-                       "모수 추정",
-                       "가설검정",
-                       "회귀분석",
-                       "AI 기초수학"
-                   ],
-        "credit_rules":  {
-                             "for_bdc_student":  "일반선택"
-                         },
-        "data_status":  "partial"
+    "instructor": {
+      "name": "이병준"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "AAI111",
-        "section":  "00",
-        "department":  "인공지능융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "심층강화학습",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "월",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "정보통신관 205호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "감태의"
-                       },
-        "overview":  "강화학습에 딥러닝 기술을 적용하는 심층강화학습의 발전 과정과 자연어처리·로보틱스·게임 분야의 응용 사례를 학습한다.",
-        "objectives":  [
-                           "심층강화학습의 기본 개념 이해",
-                           "심층강화학습 기술의 발전 단계 이해",
-                           "자연어처리 응용 사례 학습",
-                           "로보틱스 응용 사례 학습",
-                           "게임 응용 사례 학습"
-                       ],
-        "topics":  [
-                       "Reinforcement Learning",
-                       "Deep Reinforcement Learning",
-                       "Deep Learning",
-                       "자연어처리",
-                       "로보틱스",
-                       "게임",
-                       "응용 사례"
-                   ],
-        "credit_rules":  {
-                             "for_bdc_student":  "일반선택"
-                         },
-        "prerequisite_status":  "상세 강의계획서 미확보로 확인 필요",
-        "data_status":  "partial"
+    "overview": "최신 동향에 맞춰 인공신경망을 기반으로 하는 기계학습 전반을 학습한다.",
+    "topics": [
+      "인공신경망",
+      "역전파",
+      "Stochastic Gradient Descent",
+      "일반화",
+      "모델 선택",
+      "하이퍼파라미터 튜닝",
+      "정규화",
+      "Convolution blocks",
+      "Recurrent blocks",
+      "Attention"
+    ],
+    "weekly_plan_partial": [
+      "Introduction",
+      "Backpropagation",
+      "Stochastic Gradient Descent",
+      "Generalization and Model Selection",
+      "Hyperparameter tuning",
+      "Normalization and Convolution blocks",
+      "Recurrent blocks and Attention"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "final_exam_percent": 90,
+      "attendance_percent": 10
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "AAI117",
-        "section":  "00",
-        "department":  "인공지능융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "데이터및정보시각화",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "정보통신관 205호",
-                         "delivery":  "비대면"
-                     },
-        "instructor":  {
-                           "name":  "윤수식"
-                       },
-        "catalog_overview":  "인간의 인지 특성에 기반한 시각화 고려사항과 막대·선·산포·평행좌표 그래프, 다변량 및 시공간 데이터 시각화 기법과 응용 사례를 학습한다.",
-        "syllabus_overview":  "데이터 과학의 전반적인 절차와 응용 및 패턴 마이닝·분류·군집화·이상치 탐지의 기본 개념과 대표 알고리즘을 이론 중심으로 학습한다.",
-        "topics_catalog":  [
-                               "Information Visualization",
-                               "인간의 인지 특성",
-                               "막대그래프",
-                               "선그래프",
-                               "산포도",
-                               "평행좌표그래프",
-                               "다변량 데이터 시각화",
-                               "시공간 데이터 시각화"
-                           ],
-        "topics_syllabus":  [
-                                "데이터 과학 절차",
-                                "데이터 이해",
-                                "데이터 전처리",
-                                "패턴 마이닝",
-                                "분류",
-                                "군집화",
-                                "이상치 탐지",
-                                "데이터 마이닝"
-                            ],
-        "textbooks":  [
-                          {
-                              "title":  "Data Mining: Concepts and Techniques",
-                              "edition":  "4th",
-                              "authors":  "Jiawei Han",
-                              "publisher":  "Morgan Kaufmann",
-                              "required":  false
-                          },
-                          {
-                              "title":  "강의 슬라이드"
-                          }
-                      ],
-        "weekly_plan_partial":  [
-                                    "강의 소개 및 안내",
-                                    "데이터 이해 및 전처리",
-                                    "데이터 이해 및 전처리",
-                                    "패턴 마이닝",
-                                    "패턴 마이닝",
-                                    "패턴 마이닝",
-                                    "분류"
-                                ],
-        "credit_rules":  {
-                             "for_bdc_student":  "일반선택"
-                         },
-        "data_quality_flags":  [
-                                   {
-                                       "severity":  "high",
-                                       "type":  "catalog_syllabus_mismatch",
-                                       "description":  "과목명과 공식 개요는 데이터 시각화이지만 실제 상세 개요·교재·주차 계획은 데이터 마이닝 내용으로 구성되어 담당 부서 또는 교수 확인 필요"
-                                   }
-                               ],
-        "data_status":  "conflict"
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC116",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "데이터과학개론",
+    "credits": 2,
+    "schedule": {
+      "day": "월",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "애기능생활관 301호",
+      "delivery": "대면"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "AAI122",
-        "section":  "00",
-        "department":  "인공지능융합학과",
-        "classification":  "전공선택",
-        "title_ko":  "인공지능응용세미나II",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "정운오IT교양관 610호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "박보용"
-                       },
-        "overview":  "자신의 전문 분야와 관련된 최신 AI 연구 논문을 분석·발표하고, 산업 및 연구 현장의 난제와 AI 실패 사례를 토론하며 팀 프로젝트를 통해 AI 기반 해결 방법을 설계한다.",
-        "objectives":  [
-                           "인공지능 핵심 개념 이해",
-                           "전문 분야의 최신 AI 연구 논문 분석 및 발표",
-                           "산업과 연구 분야의 실제 난제 분석",
-                           "AI 실패 사례 분석",
-                           "자신의 분야에 존재하는 AI 난제의 해결 방법 설계",
-                           "동료 및 교수 피드백을 통한 학문적 대화"
-                       ],
-        "topics":  [
-                       "Machine Learning Fundamentals",
-                       "Artificial Intelligence Fundamentals",
-                       "AI Challenges",
-                       "AI Failure Cases",
-                       "Research Paper Analysis",
-                       "논문 발표",
-                       "토론",
-                       "팀 프로젝트",
-                       "산업 문제 해결"
-                   ],
-        "weekly_plan_partial":  [
-                                    "Course Introduction",
-                                    "Fundamentals of Machine Learning",
-                                    "Fundamentals of Artificial Intelligence",
-                                    "AI Challenges 1",
-                                    "AI Challenges 2",
-                                    "AI Challenges 3",
-                                    "AI Challenges 4"
-                                ],
-        "project":  {
-                        "team_project":  true,
-                        "presentation":  true,
-                        "paper_analysis":  true,
-                        "professional_domain_problem":  true
-                    },
-        "credit_rules":  {
-                             "for_bdc_student":  "일반선택"
-                         },
-        "schedule_conflict_group":  [
-                                        "BDC108",
-                                        "BDC117",
-                                        "BDC129"
-                                    ],
-        "data_status":  "partial"
+    "instructor": {
+      "name": "석흥일"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "CVO101",
-        "section":  "00",
-        "department":  "SW·AI융합대학원",
-        "classification":  "기초공통",
-        "title_ko":  "자료구조",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "목",
-                         "periods":  "9-10",
-                         "session":  2,
-                         "time":  "20:20-21:50",
-                         "room":  "애기능생활관 302호",
-                         "delivery":  "비대면"
-                     },
-        "instructor":  {
-                           "name":  "박성빈"
-                       },
-        "topics":  [
-                       "자료구조"
-                   ],
-        "credit_rules":  {
-                             "additional_credit_designated_student":  "지정학점 이수 대상 과목으로 처리 가능",
-                             "non_designated_student":  "기초공통 추가 이수 시 최대 4학점까지 전공선택 인정 가능",
-                             "verification_required":  true
-                         },
-        "data_status":  "minimal"
+    "overview": "데이터과학과 기계학습의 기초를 다루며, 분류·회귀·군집화 알고리즘을 이론과 구현 양면에서 학습하고 데이터에서 유용한 정보를 추출하여 지능형 시스템 개발에 활용한다.",
+    "topics": [
+      "Machine Learning Landscape",
+      "End-to-End Machine Learning Project",
+      "데이터 탐색 및 시각화",
+      "모델 선택·학습·미세조정",
+      "이진 분류",
+      "다중 클래스·다중 레이블·다중 출력 분류",
+      "성능 평가",
+      "선형회귀",
+      "로지스틱 회귀",
+      "Gradient Descent",
+      "정규화 선형 모델",
+      "Support Vector Machines",
+      "Perceptron",
+      "Multi-Layer Perceptron",
+      "Backpropagation",
+      "Decision Trees",
+      "Ensemble Learning",
+      "Random Forests",
+      "Bagging",
+      "Boosting",
+      "차원축소",
+      "Principal Component Analysis",
+      "K-means Clustering",
+      "Gaussian Mixtures"
+    ],
+    "prerequisite_knowledge": [
+      "Python 프로그래밍",
+      "선형대수 기초",
+      "확률 및 통계 기초"
+    ],
+    "textbooks": [
+      {
+        "title": "Hands-On Machine Learning with Scikit-Learn and TensorFlow",
+        "edition": "2nd",
+        "authors": "Aurélien Géron",
+        "publisher": "O'Reilly",
+        "year": 2019
+      },
+      {
+        "title": "Supplementary Lecture Notes"
+      }
+    ],
+    "weekly_plan": [
+      "Machine Learning Landscape",
+      "End-to-End Machine Learning Project",
+      "Classification",
+      "Training Models",
+      "Support Vector Machines",
+      "Introduction to Artificial Neural Networks",
+      "Decision Trees",
+      "Ensemble Learning and Random Forests",
+      "Dimensionality Reduction",
+      "Unsupervised Learning Techniques"
+    ],
+    "assessment": {
+      "ongoing_assignments_percent": 30,
+      "midterm_exam_percent": 30,
+      "attendance_percent": 10,
+      "team_project_percent": 30
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "CVO102",
-        "section":  "00",
-        "department":  "SW·AI융합대학원",
-        "classification":  "기초공통",
-        "title_ko":  "컴퓨터구조",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "월",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "애기능생활관 302호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "서태원"
-                       },
-        "overview":  "CPU 내부 구조와 캐시·메모리·스토리지 계층을 학습하고, Verilog HDL로 축소형 32비트 RISC-V CPU를 직접 설계한다.",
-        "objectives":  [
-                           "컴퓨터 추상화와 성능 이해",
-                           "32비트 RISC-V 명령어와 머신코드 이해",
-                           "RISC-V CPU 설계",
-                           "메모리 계층 이해",
-                           "Verilog HDL을 활용한 하드웨어 구현"
-                       ],
-        "prerequisite_knowledge":  [
-                                       "COSE221 Digital Logic Design",
-                                       "Verilog HDL",
-                                       "C 언어"
-                                   ],
-        "topics":  [
-                       "Computer Organization",
-                       "CPU",
-                       "Memory Hierarchy",
-                       "Cache",
-                       "Memory",
-                       "Storage",
-                       "Computer Performance",
-                       "RISC-V",
-                       "RV32I",
-                       "Machine Code",
-                       "Verilog HDL",
-                       "CPU Design",
-                       "Data Processing Instructions",
-                       "Memory Access Instructions",
-                       "Branch Instructions"
-                   ],
-        "textbooks":  [
-                          {
-                              "title":  "원리부터 설계까지 (쉽고 명확한) 컴퓨터구조: RISC-V 중심으로",
-                              "authors":  "서태원",
-                              "publisher":  "홍릉",
-                              "year":  2021
-                          }
-                      ],
-        "weekly_plan_partial":  [
-                                    "Introduction: Computer Abstractions and Technology, Computer Performance",
-                                    "RISC-V RV32I Instructions: Data Processing",
-                                    "RISC-V RV32I Instructions: Data Processing",
-                                    "RISC-V RV32I Instructions: Memory Access",
-                                    "RISC-V RV32I Instructions: Branch"
-                                ],
-        "project":  {
-                        "individual_hardware_design":  true,
-                        "description":  "Verilog HDL로 축소형 32비트 RISC-V CPU 설계"
-                    },
-        "course_page_as_provided":  "http://esca.krea.ac.kr",
-        "credit_rules":  {
-                             "additional_credit_designated_student":  "지정학점 이수 대상 과목으로 처리 가능",
-                             "non_designated_student":  "기초공통 추가 이수 시 최대 4학점까지 전공선택 인정 가능",
-                             "verification_required":  true
-                         },
-        "data_quality_flags":  [
-                                   {
-                                       "severity":  "medium",
-                                       "type":  "possible_url_typo",
-                                       "description":  "강의계획서의 esca.krea.ac.kr 주소는 오타 가능성이 있어 확인 필요"
-                                   }
-                               ],
-        "data_status":  "partial"
+    "assignments": {
+      "programming_language": "Python",
+      "programming_assignment_count": "3-4"
     },
-    {
-        "academic_year":  2026,
-        "semester":  "2",
-        "course_code":  "CVO103",
-        "section":  "00",
-        "department":  "SW·AI융합대학원",
-        "classification":  "기초공통",
-        "title_ko":  "프로그래밍언어",
-        "credits":  2,
-        "schedule":  {
-                         "day":  "화",
-                         "periods":  "7-8",
-                         "session":  1,
-                         "time":  "18:45-20:15",
-                         "room":  "정보통신관 205호",
-                         "delivery":  "대면"
-                     },
-        "instructor":  {
-                           "name":  "박정배"
-                       },
-        "overview":  "프로그래밍 언어의 유형과 특성을 비교하고 구문 기술, 자료형, 구조체, 스코프, 부프로그램 및 언어 설계 원리를 학습하며 함수형·논리형·객체지향 프로그래밍과 LLM 동향을 함께 다룬다.",
-        "objectives":  [
-                           "언어 구문을 기술하고 새로운 언어를 설계하는 방법 이해",
-                           "언어별 타입·제어문·부프로그램 차이 비교",
-                           "응용 분야에 적합한 프로그래밍 언어를 판단하고 설명",
-                           "명령형·함수형·논리형·객체지향 언어 비교",
-                           "프로그램이 컴퓨터 내부에서 실행되는 과정 이해",
-                           "최신 LLM 동향 파악"
-                       ],
-        "topics":  [
-                       "Programming Language Design",
-                       "Programming Language Evolution",
-                       "Lexical Analysis",
-                       "Syntax Analysis",
-                       "Names",
-                       "Bindings",
-                       "Scopes",
-                       "Data Types",
-                       "Subprograms",
-                       "Imperative Programming",
-                       "Functional Programming",
-                       "Logic Programming",
-                       "Object-Oriented Programming",
-                       "Lisp",
-                       "Prolog",
-                       "AI-HUB",
-                       "LLM Trends"
-                   ],
-        "weekly_plan_partial":  [
-                                    "Introduction",
-                                    "Evolution of the Major Programming Languages",
-                                    "AI-HUB 데이터 소개",
-                                    "Lexical and Syntax Analysis",
-                                    "Names, Bindings, and Scopes",
-                                    "Data Types",
-                                    "Subprograms"
-                                ],
-        "presentation":  {
-                             "required":  true,
-                             "timing":  "중간고사 이후",
-                             "topic":  "프로그래밍 언어 관점의 AI-HUB 데이터 활용 방법 토론 및 발표"
-                         },
-        "credit_rules":  {
-                             "additional_credit_designated_student":  "지정학점 이수 대상 과목으로 처리 가능",
-                             "non_designated_student":  "기초공통 추가 이수 시 최대 4학점까지 전공선택 인정 가능",
-                             "verification_required":  true
-                         },
-        "schedule_conflict_group":  [
-                                        "BDC108",
-                                        "BDC117",
-                                        "BDC129",
-                                        "AAI122"
-                                    ],
-        "data_status":  "partial"
-    }
+    "project": {
+      "team_project": true,
+      "presentation": true,
+      "presentation_mode": "온라인",
+      "q_and_a": true,
+      "midterm_project": "개인 경쟁"
+    },
+    "source_file": "Syllabus.pdf",
+    "data_status": "complete",
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC117",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "데이터과학특론",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "애기능생활관 301호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "황영숙"
+    },
+    "overview": "데이터 수집·전처리·탐색적 분석부터 통계적 추론, 머신러닝, 딥러닝, 시계열·텍스트 분석, MLOps, 데이터 윤리까지 데이터과학 전 영역을 다루고, 자신의 직무 및 조직의 실제 문제와 연결한 과제와 프로젝트를 수행한다.",
+    "objectives": [
+      "통계적 추론, 머신러닝, 딥러닝, MLOps 등 데이터과학의 핵심 개념과 방법론을 체계적으로 이해",
+      "실무 데이터를 활용하여 문제 정의부터 분석·모델링·해석까지 전 과정 수행",
+      "조직의 실제 문제를 데이터과학적으로 재정의하고 해결하는 프로젝트 경험 축적",
+      "데이터 기반 의사결정의 윤리적·사회적 쟁점 인식 및 책임 있는 대응"
+    ],
+    "prerequisite_knowledge": [
+      "필수 선수과목 없음",
+      "프로그래밍 기초 권장",
+      "통계 기초 권장"
+    ],
+    "topics": [
+      "CRISP-DM",
+      "문제 정의",
+      "데이터 수집 및 전처리",
+      "데이터 품질",
+      "탐색적 데이터 분석",
+      "데이터 시각화",
+      "통계적 추론",
+      "가설검정",
+      "신뢰구간",
+      "A/B 테스트",
+      "선형·다중·로지스틱 회귀",
+      "모델 진단",
+      "의사결정트리",
+      "Random Forest",
+      "Boosting",
+      "모델 평가",
+      "과적합",
+      "교차검증",
+      "K-means",
+      "DBSCAN",
+      "PCA",
+      "t-SNE",
+      "피처 엔지니어링",
+      "파이프라인 자동화",
+      "시계열 분석",
+      "ARIMA",
+      "딥러닝 개론",
+      "CNN",
+      "RNN",
+      "NLP",
+      "텍스트마이닝",
+      "임베딩",
+      "감성분석",
+      "토픽모델링",
+      "MLOps",
+      "모델 배포",
+      "버전관리",
+      "모니터링",
+      "데이터 드리프트",
+      "데이터 윤리",
+      "편향과 공정성",
+      "개인정보보호",
+      "설명가능 AI"
+    ],
+    "textbooks": [
+      {
+        "title": "Python for Data Analysis",
+        "authors": "Wes McKinney",
+        "publisher": "O'Reilly Media",
+        "year": 2022,
+        "isbn": "9781098104030"
+      },
+      {
+        "title": "매주 배포되는 강의자료 및 실습 템플릿"
+      },
+      {
+        "title": "scikit-learn 및 pandas 공식 문서"
+      }
+    ],
+    "weekly_plan": [
+      "데이터과학 개관과 문제 정의",
+      "데이터 수집과 전처리",
+      "탐색적 데이터분석과 시각화",
+      "통계적 추론 기초",
+      "회귀분석",
+      "프로젝트 착수 및 팀 구성",
+      "지도학습: 분류·회귀 모델",
+      "중간 점검 및 프로젝트 발표",
+      "비지도학습",
+      "피처 엔지니어링과 파이프라인",
+      "시계열 분석",
+      "딥러닝 개론",
+      "NLP·텍스트마이닝 응용",
+      "MLOps와 모델 운영",
+      "데이터 윤리와 책임 있는 AI",
+      "최종 프로젝트 발표"
+    ],
+    "assessment": {
+      "midterm_exam_percent": 20,
+      "final_exam_percent": 20,
+      "participation_percent": 10,
+      "attendance_percent": 10,
+      "team_project_percent": 40
+    },
+    "assignments": {
+      "items": [
+        "프로젝트 제안서",
+        "SQL+pandas 기반 데이터 전처리 및 EDA 보고서",
+        "회귀모델 구축 및 계수 해석 리포트",
+        "군집화·차원축소 기반 고객·제품 세분화 보고서",
+        "시계열 매출·수요 예측 보고서",
+        "프로젝트 최종 발표자료"
+      ]
+    },
+    "project": {
+      "team_project": true,
+      "presentation": true,
+      "workplace_problem_required": true,
+      "milestones": [
+        "직무 문제를 데이터 문제로 재정의한 제안서",
+        "팀 구성과 KPI 설정",
+        "중간 발표",
+        "최종 보고서 및 발표",
+        "상호평가"
+      ]
+    },
+    "source_file": "2026_2학기 데이터과학특론_강의계획서.docx",
+    "data_status": "complete",
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC126",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "건강관리분석학의기초",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "정보통신관 604호",
+      "delivery": "비대면"
+    },
+    "instructor": {
+      "name": "서승호"
+    },
+    "overview": "웨어러블 센서, 바이오신호, 의료영상 등 건강관리 데이터를 이해하고 인간행동인식, 딥러닝, 멀티모달 학습, 생성형 AI를 활용한 분석 방법과 응용 사례를 학습한다.",
+    "objectives": [
+      "건강관리 데이터의 종류와 특성 및 데이터 분석의 기본 개념 이해",
+      "웨어러블 센서·바이오신호·의료영상 데이터의 AI 기반 분석 기법 이해",
+      "HAR·딥러닝·멀티모달 학습·생성형 AI의 원리와 응용 사례 학습",
+      "최신 디지털 헬스케어 기술을 실제 데이터 분석 문제에 적용할 기초 역량 함양"
+    ],
+    "topics": [
+      "디지털 헬스케어",
+      "Healthcare AI",
+      "웨어러블 센서",
+      "IMU",
+      "ECG",
+      "EEG",
+      "EMG",
+      "PPG",
+      "스마트워치",
+      "모바일 헬스케어",
+      "Human Activity Recognition",
+      "Feature Engineering",
+      "Classical Machine Learning",
+      "CNN",
+      "LSTM",
+      "Transformer",
+      "Self-Supervised Learning",
+      "Foundation Models",
+      "Domain Adaptation",
+      "Continual Learning",
+      "Test-Time Adaptation",
+      "Open-set HAR",
+      "Open-vocabulary HAR",
+      "멀티모달 학습",
+      "생성형 AI",
+      "의료영상 AI"
+    ],
+    "datasets": [
+      "PAMAP2",
+      "Opportunity"
+    ],
+    "references": [
+      {
+        "title": "Artificial intelligence in healthcare",
+        "authors": "Kun-Hsing Yu, Andrew L. Beam, Isaac S. Kohane",
+        "publication": "Nature Biomedical Engineering",
+        "year": 2018
+      },
+      {
+        "title": "Past, present, and future of sensor-based human activity recognition using wearables: A surveying tutorial on a still challenging task",
+        "authors": "Harish Haresamudram, Chi Ian Tang, Sungho Suh, Paul Lukowicz, Thomas Ploetz",
+        "publication": "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+        "year": 2025
+      }
+    ],
+    "weekly_plan_partial": [
+      "Introduction to Healthcare Analytics",
+      "Wearable Sensors and Healthcare Data",
+      "Human Activity Recognition I",
+      "Human Activity Recognition II",
+      "Advanced Topics in HAR"
+    ],
+    "assignments": {
+      "items": [
+        {
+          "title": "Healthcare AI 기술 조사 및 응용 사례 분석",
+          "description": "Wearable AI, Medical Imaging AI, Foundation Models 등 관심 기술의 원리·응용·최신 연구 동향 분석",
+          "format": "A4 5-7페이지 PDF",
+          "submission": "LMS",
+          "due_date": "2026-12-03"
+        }
+      ]
+    },
+    "domain_tags": [
+      "헬스케어",
+      "웨어러블",
+      "바이오신호",
+      "의료영상"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "ongoing_assignments_percent": 20,
+      "midterm_exam_percent": 35,
+      "final_exam_percent": 35,
+      "attendance_percent": 10
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "BDC129",
+    "section": "00",
+    "department": "빅데이터융합학과",
+    "classification": "전공선택",
+    "title_ko": "빅데이터응용세미나II",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "정운오IT교양관 609호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "정연돈"
+    },
+    "overview": "2026학년도 2학기에는 데이터 익명화와 데이터 프라이버시를 주제로 국내외 개인정보보호 제도 및 관련 기술을 학습하고, 한 학기 동안 팀 프로젝트 또는 논문을 수행한다.",
+    "objectives": [
+      "데이터 익명화의 개념 이해",
+      "데이터 익명화 기술과 방법 이해",
+      "데이터 프라이버시 모델 이해",
+      "국내외 개인정보보호 및 데이터 프라이버시 제도 이해",
+      "데이터 익명화 기술의 실제 응용"
+    ],
+    "topics": [
+      "개인정보보호",
+      "데이터 익명화",
+      "데이터 프라이버시",
+      "국내외 개인정보보호 제도",
+      "관계형 데이터 익명화",
+      "프라이버시 모델",
+      "익명화 기술 및 방법",
+      "팀 프로젝트",
+      "논문 작성"
+    ],
+    "textbooks": [
+      {
+        "title": "데이터 익명화",
+        "authors": "김종선, 이혁기, 정기정, 정연돈",
+        "publisher": "휴먼사이언스",
+        "year": 2018
+      }
+    ],
+    "weekly_plan_partial": [
+      "강의 소개",
+      "데이터 익명화 개념 및 제도",
+      "관계형 데이터 익명화: 프라이버시 모델",
+      "관계형 데이터 익명화: 프라이버시 모델",
+      "관계형 데이터 익명화: 기술 및 방법"
+    ],
+    "project": {
+      "team_project": true,
+      "paper_option": true,
+      "team_formation": "개강 첫 수업"
+    },
+    "registration_constraints": [
+      "개강 첫 수업에 반드시 참석하여 강의 소개를 듣고 팀을 구성해야 함",
+      "첫 수업 참석 후 수강 취소는 가능",
+      "수강 정정기간 추가 신청은 불가능"
+    ],
+    "domain_tags": [
+      "개인정보",
+      "프라이버시",
+      "익명화",
+      "데이터 거버넌스"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "team_project_percent": 40,
+      "exam_percent": 40,
+      "class_participation_and_assignments_percent": 20
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "SWS125",
+    "section": "00",
+    "department": "소프트웨어보안학과",
+    "classification": "전공선택",
+    "title_ko": "산업시스템보안",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 B101호",
+      "delivery": "비대면 중심·일부 대면"
+    },
+    "instructor": {
+      "name": "최윤성"
+    },
+    "overview": "산업 자동화 및 제어시스템의 스마트화에 수반되는 보안 문제와 대응방안을 사례 중심으로 학습하고, 사고사례 분석을 통해 관련 보안 기술과 연구 동향을 이해한다.",
+    "objectives": [
+      "스마트 제조를 위한 ICT와 OT의 필요성 및 차이 이해",
+      "산업 자동화·제어시스템의 특성과 보안 위협 이해",
+      "IACS 보안 위협 대응을 위한 사이버보안 기술과 정책 설명",
+      "OT·ICS 사고사례 분석 및 최신 연구 동향 이해"
+    ],
+    "topics": [
+      "Smart Manufacturing",
+      "ICT",
+      "Operational Technology",
+      "Industrial Automation and Control Systems",
+      "OT Security",
+      "ICS Security",
+      "보안 위협",
+      "공격 시나리오",
+      "침해사고 사례",
+      "사이버보안 정책",
+      "IEC 62443",
+      "NIST SP 800-82"
+    ],
+    "references": [
+      {
+        "title": "KS X IEC TS 62443-1-1:2009"
+      },
+      {
+        "title": "Industrial Cyber Security",
+        "authors": "Paskal Ackerman",
+        "year": 2019
+      },
+      {
+        "title": "NIST SP 800-82 Rev. 3: Guide to Operational Technology Security",
+        "year": 2023
+      }
+    ],
+    "weekly_plan_partial": [
+      "Course Introduction",
+      "OT/ICS Security Problems",
+      "OT/ICS Security Threats",
+      "No Class",
+      "추석",
+      "OT/ICS Attack Scenarios",
+      "OT/ICS Incident Cases I",
+      "OT/ICS Incident Cases II"
+    ],
+    "course_policies": [
+      "온라인 수업 시 수강생 비디오 항상 켜기",
+      "일부 대면수업 예정",
+      "일부 커리큘럼 변경 가능"
+    ],
+    "domain_tags": [
+      "산업보안",
+      "OT",
+      "ICS",
+      "스마트 제조"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "participation_percent": 20,
+      "presentation_assignment_percent": 40,
+      "midterm_assignment_percent": 20,
+      "final_assignment_percent": 20
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "SWS126",
+    "section": "00",
+    "department": "소프트웨어보안학과",
+    "classification": "전공선택",
+    "title_ko": "소프트웨어보안",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "애기능생활관 301호",
+      "delivery": "비대면"
+    },
+    "instructor": {
+      "name": "전유석"
+    },
+    "overview": "소프트웨어 취약점의 발생 원인과 공격 과정을 이해하고 탐지·분석·완화 기술을 학습하며, 중간고사 이후에는 최신 소프트웨어 보안 기술 동향을 발표 중심으로 다룬다.",
+    "objectives": [
+      "소프트웨어 보안 분야의 핵심 원리 이해",
+      "소프트웨어 취약점의 발생 원인과 공격 과정 이해",
+      "취약점 탐지·분석·완화 기술 학습",
+      "다양한 보안 문제에 대한 해결책을 고안하는 능력 배양",
+      "최신 소프트웨어 보안 기술 동향 조사 및 발표"
+    ],
+    "topics": [
+      "Software Security",
+      "Software Lifecycle",
+      "Security Policies",
+      "Software Bugs",
+      "Exploitation",
+      "Mitigations",
+      "Software Testing",
+      "Advanced Mitigations",
+      "기술 동향 발표"
+    ],
+    "weekly_plan_partial": [
+      "Introduction to Software Security",
+      "Software Lifecycle and Security Policies",
+      "Software Bugs",
+      "Exploitation",
+      "Mitigations",
+      "Testing",
+      "Advanced Mitigations"
+    ],
+    "presentation": {
+      "required": true,
+      "timing": "중간고사 이후",
+      "topic": "최신 소프트웨어 보안 기술 동향"
+    },
+    "domain_tags": [
+      "소프트웨어보안",
+      "취약점",
+      "공격",
+      "완화",
+      "보안테스트"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "midterm_exam_percent": 50,
+      "participation_percent": 10,
+      "final_presentation_percent": 40
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "SWS128",
+    "section": "00",
+    "department": "소프트웨어보안학과",
+    "classification": "전공선택",
+    "title_ko": "소프트웨어분석",
+    "credits": 2,
+    "schedule": {
+      "day": "월",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 B101호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "박지혁"
+    },
+    "overview": "추상 해석, 제어 흐름 그래프, 포인터 분석을 포함하는 정적 프로그램 분석의 이론적 기반과 실제 알고리즘을 학습한다.",
+    "objectives": [
+      "정적 프로그램 분석의 이론적 원리 이해",
+      "정적 분석 알고리즘 구현 역량 습득",
+      "소프트웨어 정확성과 보안을 체계적으로 추론하는 능력 배양",
+      "실무 소프트웨어에 프로그램 분석 기법 적용"
+    ],
+    "topics": [
+      "Static Program Analysis",
+      "Scala",
+      "Syntax",
+      "Semantics",
+      "Control Flow Graphs",
+      "Dataflow Analysis",
+      "Abstract Interpretation",
+      "Internal Domain Analysis",
+      "Pointer Analysis",
+      "Software Correctness",
+      "Software Security"
+    ],
+    "weekly_plan_partial": [
+      "Introduction",
+      "Basics of Scala",
+      "Syntax and Semantics",
+      "Control Flow Graphs",
+      "Dataflow Analysis",
+      "Abstract Interpretation",
+      "Internal Domain Analysis"
+    ],
+    "prerequisite_knowledge": [
+      "프로그래밍 언어 기초",
+      "Scala는 수업에서 기초부터 소개"
+    ],
+    "domain_tags": [
+      "정적분석",
+      "프로그램분석",
+      "컴파일러",
+      "소프트웨어정확성",
+      "소프트웨어보안"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "ongoing_assignments_percent": 90,
+      "attendance_percent": 10
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "AAI101",
+    "section": "00",
+    "department": "인공지능융합학과",
+    "classification": "전공선택",
+    "title_ko": "인공지능개론",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "우정관 205호",
+      "delivery": "비대면"
+    },
+    "instructor": {
+      "name": "김학승"
+    },
+    "overview": "인공지능의 기본 개념을 이해하고 전통적인 인공지능부터 생성형 AI, 강화학습, 범용인공지능까지 폭넓게 살펴보는 입문 과목이다. 이후의 전문 과목에서 접할 주제와 개념을 조망하며, 인공지능과 머신러닝 핵심 개념에 이미 익숙한 학생에게는 수강을 권장하지 않는다.",
+    "objectives": [
+      "인공지능 연구의 핵심 개념 이해",
+      "최근 인공지능 연구·개발 주제와 쟁점 이해",
+      "전통적 인공지능과 현대 인공지능의 주요 응용 파악"
+    ],
+    "topics": [
+      "인공지능 개론",
+      "AI 기법",
+      "AI 응용시스템",
+      "머신러닝",
+      "딥러닝",
+      "생성형 AI",
+      "강화학습",
+      "범용인공지능",
+      "AI 쟁점"
+    ],
+    "prerequisite_knowledge": [],
+    "prerequisite_status": "선수지식 없음",
+    "references": [
+      "매 강의 제공 자료"
+    ],
+    "assessment": {
+      "ongoing_assignments_percent": 25,
+      "midterm_exam_percent": 40,
+      "attendance_percent": 10,
+      "final_presentation_percent": 25,
+      "note": "중간고사는 대면 출석시험으로 진행하며, 학기말 팀 프로젝트는 발표 방식입니다."
+    },
+    "assignments": {
+      "items": [
+        "본인 관심 영역 또는 주제에 관한 영문 리뷰 페이퍼(3,000단어), 학기 말 제출",
+        "학기말 팀 프로젝트 발표(수강인원에 따라 운영 방식 조정)"
+      ]
+    },
+    "project": {
+      "team_project": true,
+      "presentation": true
+    },
+    "weekly_plan": [
+      "Introduction & course overview",
+      "Data types and tasks of AI",
+      "Statistics recap",
+      "Core concepts of machine learning I",
+      "Core concepts of machine learning II",
+      "Core concepts of deep learning I",
+      "Core concepts of deep learning II",
+      "Midterm exam",
+      "Real-world applications of conventional AI techniques",
+      "Generative AI",
+      "Reinforcement learning",
+      "Recent advancements in AI",
+      "Contemporary issues of AI",
+      "Toward artificial general intelligence",
+      "Student presentation I",
+      "Student presentation II"
+    ],
+    "course_notes": [
+      "수업은 비대면 방식으로 진행",
+      "중간고사는 대면 출석시험으로 시행",
+      "법정공휴일 및 기타 상황에 따른 보강은 비대면 또는 녹화강의로 제공",
+      "강의 일정과 내용은 수강인원에 따라 조정될 수 있음"
+    ],
+    "credit_rules": {
+      "for_bdc_student": "일반선택"
+    },
+    "data_status": "partial",
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "AAI104",
+    "section": "00",
+    "department": "인공지능융합학과",
+    "classification": "전공선택",
+    "title_ko": "확률과통계",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 B101호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "박성우"
+    },
+    "overview": "인공지능의 필수 기초 수학인 확률과 통계학을 학습하며 확률 기초, 확률변수, 표본통계 분포, 모수 추정, 가설검정, 회귀분석의 이론과 예제를 다룬다.",
+    "objectives": [
+      "확률의 기초 개념 이해",
+      "확률변수와 표본통계 분포 이해",
+      "모수 추정 방법 학습",
+      "가설검정 이론과 예제 학습",
+      "회귀분석 이론과 예제 학습"
+    ],
+    "topics": [
+      "확률",
+      "확률변수",
+      "표본통계 분포",
+      "모수 추정",
+      "가설검정",
+      "회귀분석",
+      "AI 기초수학"
+    ],
+    "credit_rules": {
+      "for_bdc_student": "일반선택"
+    },
+    "data_status": "partial",
+    "assessment": {
+      "note": "평가기준 미공개"
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "AAI111",
+    "section": "00",
+    "department": "인공지능융합학과",
+    "classification": "전공선택",
+    "title_ko": "심층강화학습",
+    "credits": 2,
+    "schedule": {
+      "day": "월",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "정보통신관 205호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "감태의"
+    },
+    "overview": "강화학습에 딥러닝 기술을 적용하는 심층강화학습의 발전 과정과 자연어처리·로보틱스·게임 분야의 응용 사례를 학습한다.",
+    "objectives": [
+      "심층강화학습의 기본 개념 이해",
+      "심층강화학습 기술의 발전 단계 이해",
+      "자연어처리 응용 사례 학습",
+      "로보틱스 응용 사례 학습",
+      "게임 응용 사례 학습"
+    ],
+    "topics": [
+      "Reinforcement Learning",
+      "Deep Reinforcement Learning",
+      "Deep Learning",
+      "자연어처리",
+      "로보틱스",
+      "게임",
+      "응용 사례"
+    ],
+    "credit_rules": {
+      "for_bdc_student": "일반선택"
+    },
+    "prerequisite_status": "상세 강의계획서 미확보로 확인 필요",
+    "data_status": "partial",
+    "assessment": {
+      "note": "평가기준 미공개"
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "AAI117",
+    "section": "00",
+    "department": "인공지능융합학과",
+    "classification": "전공선택",
+    "title_ko": "데이터및정보시각화",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "정보통신관 205호",
+      "delivery": "비대면"
+    },
+    "instructor": {
+      "name": "윤수식"
+    },
+    "catalog_overview": "인간의 인지 특성에 기반한 시각화 고려사항과 막대·선·산포·평행좌표 그래프, 다변량 및 시공간 데이터 시각화 기법과 응용 사례를 학습한다.",
+    "syllabus_overview": "데이터 과학의 전반적인 절차와 응용 및 패턴 마이닝·분류·군집화·이상치 탐지의 기본 개념과 대표 알고리즘을 이론 중심으로 학습한다.",
+    "topics_catalog": [
+      "Information Visualization",
+      "인간의 인지 특성",
+      "막대그래프",
+      "선그래프",
+      "산포도",
+      "평행좌표그래프",
+      "다변량 데이터 시각화",
+      "시공간 데이터 시각화"
+    ],
+    "topics_syllabus": [
+      "데이터 과학 절차",
+      "데이터 이해",
+      "데이터 전처리",
+      "패턴 마이닝",
+      "분류",
+      "군집화",
+      "이상치 탐지",
+      "데이터 마이닝"
+    ],
+    "textbooks": [
+      {
+        "title": "Data Mining: Concepts and Techniques",
+        "edition": "4th",
+        "authors": "Jiawei Han",
+        "publisher": "Morgan Kaufmann",
+        "required": false
+      },
+      {
+        "title": "강의 슬라이드"
+      }
+    ],
+    "weekly_plan_partial": [
+      "강의 소개 및 안내",
+      "데이터 이해 및 전처리",
+      "데이터 이해 및 전처리",
+      "패턴 마이닝",
+      "패턴 마이닝",
+      "패턴 마이닝",
+      "분류"
+    ],
+    "credit_rules": {
+      "for_bdc_student": "일반선택"
+    },
+    "data_quality_flags": [
+      {
+        "severity": "high",
+        "type": "catalog_syllabus_mismatch",
+        "description": "과목명과 공식 개요는 데이터 시각화이지만 실제 상세 개요·교재·주차 계획은 데이터 마이닝 내용으로 구성되어 담당 부서 또는 교수 확인 필요"
+      }
+    ],
+    "data_status": "conflict",
+    "assessment": {
+      "midterm_exam_percent": 50,
+      "final_exam_percent": 50
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "AAI122",
+    "section": "00",
+    "department": "인공지능융합학과",
+    "classification": "전공선택",
+    "title_ko": "인공지능응용세미나II",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "정운오IT교양관 610호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "박보용"
+    },
+    "overview": "자신의 전문 분야와 관련된 최신 AI 연구 논문을 분석·발표하고, 산업 및 연구 현장의 난제와 AI 실패 사례를 토론하며 팀 프로젝트를 통해 AI 기반 해결 방법을 설계한다.",
+    "objectives": [
+      "인공지능 핵심 개념 이해",
+      "전문 분야의 최신 AI 연구 논문 분석 및 발표",
+      "산업과 연구 분야의 실제 난제 분석",
+      "AI 실패 사례 분석",
+      "자신의 분야에 존재하는 AI 난제의 해결 방법 설계",
+      "동료 및 교수 피드백을 통한 학문적 대화"
+    ],
+    "topics": [
+      "Machine Learning Fundamentals",
+      "Artificial Intelligence Fundamentals",
+      "AI Challenges",
+      "AI Failure Cases",
+      "Research Paper Analysis",
+      "논문 발표",
+      "토론",
+      "팀 프로젝트",
+      "산업 문제 해결"
+    ],
+    "weekly_plan_partial": [
+      "Course Introduction",
+      "Fundamentals of Machine Learning",
+      "Fundamentals of Artificial Intelligence",
+      "AI Challenges 1",
+      "AI Challenges 2",
+      "AI Challenges 3",
+      "AI Challenges 4"
+    ],
+    "project": {
+      "team_project": true,
+      "presentation": true,
+      "paper_analysis": true,
+      "professional_domain_problem": true
+    },
+    "credit_rules": {
+      "for_bdc_student": "일반선택"
+    },
+    "schedule_conflict_group": [
+      "BDC108",
+      "BDC117",
+      "BDC129"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "attendance_percent": 10,
+      "project_percent": 30,
+      "report_percent": 60
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "CVO101",
+    "section": "00",
+    "department": "SW·AI융합대학원",
+    "classification": "기초공통",
+    "title_ko": "자료구조",
+    "credits": 2,
+    "schedule": {
+      "day": "목",
+      "periods": "9-10",
+      "session": 2,
+      "time": "20:20-21:50",
+      "room": "애기능생활관 302호",
+      "delivery": "비대면"
+    },
+    "instructor": {
+      "name": "박성빈"
+    },
+    "topics": [
+      "자료구조"
+    ],
+    "credit_rules": {
+      "additional_credit_designated_student": "지정학점 이수 대상 과목으로 처리 가능",
+      "non_designated_student": "기초공통 추가 이수 시 최대 4학점까지 전공선택 인정 가능",
+      "verification_required": true
+    },
+    "data_status": "minimal",
+    "assessment": {
+      "ongoing_assignments_percent": 10,
+      "midterm_exam_percent": 30,
+      "final_exam_percent": 30,
+      "project_percent": 30
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "CVO102",
+    "section": "00",
+    "department": "SW·AI융합대학원",
+    "classification": "기초공통",
+    "title_ko": "컴퓨터구조",
+    "credits": 2,
+    "schedule": {
+      "day": "월",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "애기능생활관 302호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "서태원"
+    },
+    "overview": "CPU 내부 구조와 캐시·메모리·스토리지 계층을 학습하고, Verilog HDL로 축소형 32비트 RISC-V CPU를 직접 설계한다.",
+    "objectives": [
+      "컴퓨터 추상화와 성능 이해",
+      "32비트 RISC-V 명령어와 머신코드 이해",
+      "RISC-V CPU 설계",
+      "메모리 계층 이해",
+      "Verilog HDL을 활용한 하드웨어 구현"
+    ],
+    "prerequisite_knowledge": [
+      "COSE221 Digital Logic Design",
+      "Verilog HDL",
+      "C 언어"
+    ],
+    "topics": [
+      "Computer Organization",
+      "CPU",
+      "Memory Hierarchy",
+      "Cache",
+      "Memory",
+      "Storage",
+      "Computer Performance",
+      "RISC-V",
+      "RV32I",
+      "Machine Code",
+      "Verilog HDL",
+      "CPU Design",
+      "Data Processing Instructions",
+      "Memory Access Instructions",
+      "Branch Instructions"
+    ],
+    "textbooks": [
+      {
+        "title": "원리부터 설계까지 (쉽고 명확한) 컴퓨터구조: RISC-V 중심으로",
+        "authors": "서태원",
+        "publisher": "홍릉",
+        "year": 2021
+      }
+    ],
+    "weekly_plan_partial": [
+      "Introduction: Computer Abstractions and Technology, Computer Performance",
+      "RISC-V RV32I Instructions: Data Processing",
+      "RISC-V RV32I Instructions: Data Processing",
+      "RISC-V RV32I Instructions: Memory Access",
+      "RISC-V RV32I Instructions: Branch"
+    ],
+    "project": {
+      "individual_hardware_design": true,
+      "description": "Verilog HDL로 축소형 32비트 RISC-V CPU 설계"
+    },
+    "course_page_as_provided": "http://esca.krea.ac.kr",
+    "credit_rules": {
+      "additional_credit_designated_student": "지정학점 이수 대상 과목으로 처리 가능",
+      "non_designated_student": "기초공통 추가 이수 시 최대 4학점까지 전공선택 인정 가능",
+      "verification_required": true
+    },
+    "data_quality_flags": [
+      {
+        "severity": "medium",
+        "type": "possible_url_typo",
+        "description": "강의계획서의 esca.krea.ac.kr 주소는 오타 가능성이 있어 확인 필요"
+      }
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "ongoing_assignments_percent": 10,
+      "midterm_exam_percent": 30,
+      "final_exam_percent": 30,
+      "project_percent": 30
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  },
+  {
+    "academic_year": 2026,
+    "semester": "2",
+    "course_code": "CVO103",
+    "section": "00",
+    "department": "SW·AI융합대학원",
+    "classification": "기초공통",
+    "title_ko": "프로그래밍언어",
+    "credits": 2,
+    "schedule": {
+      "day": "화",
+      "periods": "7-8",
+      "session": 1,
+      "time": "18:45-20:15",
+      "room": "정보통신관 205호",
+      "delivery": "대면"
+    },
+    "instructor": {
+      "name": "박정배"
+    },
+    "overview": "프로그래밍 언어의 유형과 특성을 비교하고 구문 기술, 자료형, 구조체, 스코프, 부프로그램 및 언어 설계 원리를 학습하며 함수형·논리형·객체지향 프로그래밍과 LLM 동향을 함께 다룬다.",
+    "objectives": [
+      "언어 구문을 기술하고 새로운 언어를 설계하는 방법 이해",
+      "언어별 타입·제어문·부프로그램 차이 비교",
+      "응용 분야에 적합한 프로그래밍 언어를 판단하고 설명",
+      "명령형·함수형·논리형·객체지향 언어 비교",
+      "프로그램이 컴퓨터 내부에서 실행되는 과정 이해",
+      "최신 LLM 동향 파악"
+    ],
+    "topics": [
+      "Programming Language Design",
+      "Programming Language Evolution",
+      "Lexical Analysis",
+      "Syntax Analysis",
+      "Names",
+      "Bindings",
+      "Scopes",
+      "Data Types",
+      "Subprograms",
+      "Imperative Programming",
+      "Functional Programming",
+      "Logic Programming",
+      "Object-Oriented Programming",
+      "Lisp",
+      "Prolog",
+      "AI-HUB",
+      "LLM Trends"
+    ],
+    "weekly_plan_partial": [
+      "Introduction",
+      "Evolution of the Major Programming Languages",
+      "AI-HUB 데이터 소개",
+      "Lexical and Syntax Analysis",
+      "Names, Bindings, and Scopes",
+      "Data Types",
+      "Subprograms"
+    ],
+    "presentation": {
+      "required": true,
+      "timing": "중간고사 이후",
+      "topic": "프로그래밍 언어 관점의 AI-HUB 데이터 활용 방법 토론 및 발표"
+    },
+    "credit_rules": {
+      "additional_credit_designated_student": "지정학점 이수 대상 과목으로 처리 가능",
+      "non_designated_student": "기초공통 추가 이수 시 최대 4학점까지 전공선택 인정 가능",
+      "verification_required": true
+    },
+    "schedule_conflict_group": [
+      "BDC108",
+      "BDC117",
+      "BDC129",
+      "AAI122"
+    ],
+    "data_status": "partial",
+    "assessment": {
+      "midterm_exam_percent": 40,
+      "final_exam_percent": 40,
+      "attendance_percent": 20
+    },
+    "assessment_source": "2026_강의계획서_평가기준.xlsx"
+  }
 ]
-;
