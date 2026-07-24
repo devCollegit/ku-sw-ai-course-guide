@@ -696,7 +696,7 @@ window.COURSES = [
       "session": 2,
       "time": "20:20-21:50",
       "room": "정보통신관 B101호",
-      "delivery": "비대면 중심·일부 대면"
+      "delivery": "비대면"
     },
     "instructor": {
       "name": "최윤성"
