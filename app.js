@@ -183,7 +183,22 @@ function renderCompare() {
   if (!courses.length) { elements.compareContent.innerHTML = '<div class="compare-empty"><strong>비교할 과목을 선택해 주세요.</strong><p>과목 카드에서 ‘비교 담기’를 선택할 수 있습니다.</p></div>'; return; }
   const conflict = comparisonConflict(courses);
   const rows = [["과목", (c) => `<strong>${escapeHtml(c.title_ko)}</strong><br><span class="muted">${c.course_code}</span>`], ["일정", (c) => `${escapeHtml(scheduleText(c))}<br><span class="muted">${escapeHtml(c.schedule.delivery)}</span>`], ["교수", (c) => escapeHtml(c.instructor?.name)], ["개요", (c) => escapeHtml(overview(c))], ["주요 주제", (c) => topics(c).slice(0, 6).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")]];
-  elements.compareContent.innerHTML = `${conflict ? `<div class="conflict-banner"><strong>시간 충돌</strong> · ${escapeHtml(conflict)}</div>` : ""}<div class="compare-table-wrap"><table class="compare-table"><tbody>${rows.map(([label, fn]) => `<tr><th>${label}</th>${courses.map((c) => `<td>${fn(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+  elements.compareContent.innerHTML = `${conflict ? `<div class="conflict-banner"><strong>시간 충돌</strong> · ${escapeHtml(conflict)}</div>` : ""}
+    <div class="compare-table-wrap compare-desktop"><table class="compare-table"><tbody>${rows.map(([label, fn]) => `<tr><th>${label}</th>${courses.map((c) => `<td>${fn(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <div class="compare-mobile">${courses.map((c, index) => `<article class="compare-mobile-card ${departmentClass(c.department)}">
+      <div class="compare-mobile-head"><span>${index + 1}</span><div><p>${escapeHtml(c.course_code)}</p><h3>${escapeHtml(c.title_ko)}</h3></div></div>
+      <dl>
+        <div><dt>일정</dt><dd><strong>${escapeHtml(scheduleText(c))}</strong><span>${escapeHtml(c.schedule.delivery)} · ${escapeHtml(c.schedule.room)}</span></dd></div>
+        <div><dt>교수</dt><dd>${escapeHtml(c.instructor?.name || "미정")}</dd></div>
+        <div><dt>개요</dt><dd>${escapeHtml(overview(c))}</dd></div>
+      </dl>
+      <div class="topic-list">${topics(c).slice(0, 6).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
+      <button type="button" data-mobile-detail="${c.course_code}">강의계획 보기</button>
+    </article>`).join("")}</div>`;
+  elements.compareContent.querySelectorAll("[data-mobile-detail]").forEach((button) => button.addEventListener("click", () => {
+    elements.compareDialog.close();
+    openCourse(button.dataset.mobileDetail);
+  }));
 }
 function bindDialogCloseButtons() { document.querySelectorAll("[data-close-dialog]").forEach((button) => button.onclick = () => $(`#${button.dataset.closeDialog}`).close()); }
 function bindEvents() {

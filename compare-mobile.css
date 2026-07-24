@@ -1,0 +1,148 @@
+.compare-mobile {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .compare-dialog {
+    width: calc(100% - 20px);
+    max-height: calc(100dvh - 20px);
+    border-radius: 18px;
+  }
+
+  .compare-dialog .dialog-bar {
+    padding: 16px 18px;
+  }
+
+  .compare-dialog .dialog-bar h2 {
+    font-size: 1.35rem;
+  }
+
+  .compare-desktop {
+    display: none;
+  }
+
+  .compare-mobile {
+    display: grid;
+    gap: 12px;
+    padding: 12px;
+    background: var(--paper);
+  }
+
+  .compare-mobile-card {
+    --dept: var(--crimson);
+    overflow: hidden;
+    padding: 17px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--dept);
+    border-radius: 15px;
+  }
+
+  .compare-mobile-card.dept-bdc {
+    --dept: #275d8c;
+  }
+
+  .compare-mobile-card.dept-sws {
+    --dept: #a45b18;
+  }
+
+  .compare-mobile-card.dept-aai {
+    --dept: #8b285c;
+  }
+
+  .compare-mobile-card.dept-cvo {
+    --dept: #32705a;
+  }
+
+  .compare-mobile-head {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 13px;
+  }
+
+  .compare-mobile-head > span {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    background: var(--dept);
+    border-radius: 50%;
+    place-items: center;
+    font-weight: 800;
+  }
+
+  .compare-mobile-head p,
+  .compare-mobile-head h3 {
+    margin: 0;
+  }
+
+  .compare-mobile-head p {
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 800;
+  }
+
+  .compare-mobile-head h3 {
+    margin-top: 2px;
+    font-family: Georgia, "Noto Serif KR", serif;
+    font-size: 1.2rem;
+  }
+
+  .compare-mobile-card dl {
+    margin: 0;
+  }
+
+  .compare-mobile-card dl > div {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 10px;
+    padding: 11px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .compare-mobile-card dt {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+
+  .compare-mobile-card dd {
+    margin: 0;
+    color: #494340;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .compare-mobile-card dd strong,
+  .compare-mobile-card dd span {
+    display: block;
+  }
+
+  .compare-mobile-card dd span {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 0.72rem;
+  }
+
+  .compare-mobile-card .topic-list {
+    margin: 8px 0 14px;
+  }
+
+  .compare-mobile-card > button {
+    width: 100%;
+    padding: 10px;
+    color: var(--dept);
+    border: 1px solid color-mix(in srgb, var(--dept) 35%, white);
+    background: #fff;
+    border-radius: 9px;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .compare-dialog .conflict-banner {
+    margin: 12px;
+    font-size: 0.78rem;
+  }
+}
