@@ -58,8 +58,10 @@
 }
 
 @media (max-width: 680px) {
+  html,
   body {
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   .site-header {
@@ -104,17 +106,39 @@
   }
 
   .hero {
-    padding: 38px 0 42px;
+    display: block;
+    padding: 30px 0 34px;
   }
 
   .hero h1 {
-    font-size: clamp(2.35rem, 12vw, 3rem);
-    line-height: 1.08;
+    font-size: clamp(2.05rem, 10.5vw, 2.65rem);
+    line-height: 1.12;
+    letter-spacing: -.055em;
+    overflow-wrap: anywhere;
   }
 
   .hero-copy {
-    font-size: 1rem;
-    line-height: 1.72;
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 18px 0;
+    font-size: .94rem;
+    line-height: 1.62;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .hero-panel {
+    display: none;
+  }
+
+  .hero-actions {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions .primary-link {
+    min-height: 44px;
+    padding: 11px 16px;
   }
 
   .section-heading h2,
