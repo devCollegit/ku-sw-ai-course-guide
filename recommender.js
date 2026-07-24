@@ -159,7 +159,7 @@
       return;
     }
     target.innerHTML = `<div class="result-heading"><div><h3>추천 조합 ${combos.length}개</h3><p>조건에 맞는 조합을 상대적으로 비교한 결과입니다.</p></div></div><div class="combo-grid">
-      ${combos.map(({ combo, meta }, index) => `<article class="combo-card"><span>추천 ${index + 1}</span><h4>${Math.round(meta.score)}점</h4>
+      ${combos.map(({ combo, meta }, index) => `<article class="combo-card"><span>추천 조합 ${index + 1}</span>
         ${combo.map((item) => `<div class="combo-course"><button type="button" data-recommend-course="${item.course.course_code}">${item.course.title_ko}</button><small>${schedule(item.course)}</small></div>`).join("")}
         <div class="combo-facts"><span>중간고사 확인 ${meta.exams.length}개</span><span class="${Math.max(meta.byWeek.oct3, meta.byWeek.oct4) > Number(prefs.maxExams) ? "risk-high" : ""}">주간 최대 시험 ${Math.max(meta.byWeek.oct3, meta.byWeek.oct4)}개</span><span class="${meta.teamCount > 1 ? "risk-medium" : ""}">팀플 확인 ${meta.teamCount}과목</span>${meta.unknown ? `<span class="risk-medium">평가기준 미공개 ${meta.unknown}과목</span>` : ""}${combo.flatMap((item) => item.cautions).slice(0, 3).map((note) => `<span class="risk-high">주의 · ${note}</span>`).join("")}</div>
         <button class="compare-combo" type="button" data-combo="${combo.map((item) => item.course.course_code).join(",")}">이 조합 비교하기</button></article>`).join("")}
