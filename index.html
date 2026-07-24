@@ -3,162 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="고려대학교 SW·AI융합대학원 2026학년도 2학기 강의계획서 기반 과목 탐색 서비스"
-    />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2218%22 fill=%22%238b0029%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-size=%2225%22 fill=%22white%22 font-family=%22serif%22 font-weight=%22700%22>KU</text></svg>"
-    />
+    <meta name="description" content="고려대학교 SW·AI융합대학원 2026학년도 2학기 강의계획서 기반 과목 탐색 서비스" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2218%22 fill=%22%238b0029%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-size=%2225%22 fill=%22white%22 font-family=%22serif%22 font-weight=%22700%22>KU</text></svg>" />
     <title>KU SW·AI 과목 탐색기</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="처음으로">
-        <span class="brand-mark">KU</span>
-        <span>
-          <strong>SW·AI 과목 탐색기</strong>
-          <small>2026학년도 2학기</small>
-        </span>
-      </a>
-      <button id="compareOpenButton" class="compare-button" type="button">
-        비교함 <span id="compareCount">0</span>
-      </button>
+      <a class="brand" href="#top"><span class="brand-mark">KU</span><span><strong>SW·AI 과목 탐색기</strong><small>2026학년도 2학기</small></span></a>
+      <nav class="header-actions" aria-label="주요 메뉴">
+        <button class="ghost-button" id="timetableOpenButton" type="button">공식 시간표</button>
+        <button class="compare-button" id="compareOpenButton" type="button">비교함 <span id="compareCount">0</span></button>
+      </nav>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div>
-          <p class="eyebrow">강의계획서 기반 공개 카탈로그</p>
-          <h1>흩어진 강의 정보를<br />한 화면에서 비교하세요.</h1>
-          <p class="hero-copy">
-            과목 설명, 수업 방식, 주차별 주제와 프로젝트 정보를 검색하고
-            최대 3개 과목을 나란히 비교할 수 있습니다.
-          </p>
+        <div class="hero-copy-wrap">
+          <p class="eyebrow">강의계획서 19개 반영</p>
+          <h1>이번 학기,<br /><em>나에게 맞는 수업</em> 찾기</h1>
+          <p class="hero-copy">요일과 수업 방식부터 주제, 프로젝트, 교수 정보까지 한곳에서 살펴보고 최대 3개 과목을 비교해 보세요.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#catalog">과목 둘러보기</a>
+            <button class="text-link" type="button" data-open-timetable>원본 시간표 확인 →</button>
+          </div>
         </div>
-        <div class="hero-stats" aria-label="데이터 현황">
-          <div><strong id="totalCourses">19</strong><span>전체 과목</span></div>
-          <div><strong id="departmentCount">4</strong><span>개설 구분</span></div>
-          <div><strong id="verifiedCount">0</strong><span>상세 확인</span></div>
+        <div class="hero-panel" aria-label="학기 정보">
+          <p>2026 · FALL</p>
+          <strong>19</strong><span>개 개설 과목</span>
+          <div class="mini-facts"><span>월 · 화 · 목</span><span>18:45—21:50</span><span>9월 1일 개강</span></div>
         </div>
       </section>
 
-      <section class="catalog-section">
+      <section class="schedule-overview" aria-labelledby="scheduleTitle">
+        <div class="section-heading">
+          <div><p class="eyebrow">한눈에 보는 시간표</p><h2 id="scheduleTitle">요일과 교시로 먼저 좁혀보세요</h2></div>
+          <button class="ghost-button" type="button" data-open-timetable>공식 원본 크게 보기</button>
+        </div>
+        <div id="weeklySchedule" class="weekly-schedule"></div>
+      </section>
+
+      <section class="catalog-section" id="catalog">
         <aside class="filters" aria-label="검색 필터">
-          <div class="filter-heading">
-            <h2>과목 찾기</h2>
-            <button id="resetFilters" class="text-button" type="button">초기화</button>
-          </div>
-
-          <label class="search-field">
-            <span>검색</span>
-            <input
-              id="searchInput"
-              type="search"
-              placeholder="과목명, 학수번호, 교수, 주제"
-              autocomplete="off"
-            />
-          </label>
-
-          <fieldset>
-            <legend>학과</legend>
-            <div id="departmentFilters" class="check-list"></div>
-          </fieldset>
-
-          <fieldset>
-            <legend>요일</legend>
-            <div id="dayFilters" class="chip-list"></div>
-          </fieldset>
-
-          <fieldset>
-            <legend>교시</legend>
-            <div id="sessionFilters" class="chip-list"></div>
-          </fieldset>
-
-          <fieldset>
-            <legend>수업 방식</legend>
-            <div id="deliveryFilters" class="check-list"></div>
-          </fieldset>
-
-          <label class="toggle-row">
-            <input id="hideIncomplete" type="checkbox" />
-            <span>정보 부족 과목 숨기기</span>
-          </label>
+          <div class="filter-heading"><h2>필터</h2><button id="resetFilters" class="text-button" type="button">모두 지우기</button></div>
+          <label class="search-field"><span>빠른 검색</span><input id="searchInput" type="search" placeholder="과목명, 교수, 키워드" autocomplete="off" /></label>
+          <fieldset><legend>학과</legend><div id="departmentFilters" class="check-list"></div></fieldset>
+          <fieldset><legend>요일</legend><div id="dayFilters" class="chip-list"></div></fieldset>
+          <fieldset><legend>교시</legend><div id="sessionFilters" class="chip-list"></div></fieldset>
+          <fieldset><legend>수업 방식</legend><div id="deliveryFilters" class="check-list"></div></fieldset>
         </aside>
 
         <div class="catalog">
           <div class="catalog-toolbar">
-            <div>
-              <p><strong id="resultCount">0</strong>개 과목</p>
-              <p id="activeFilterSummary" class="muted">전체 조건</p>
-            </div>
-            <label>
-              <span class="sr-only">정렬</span>
-              <select id="sortSelect">
-                <option value="schedule">요일·교시순</option>
-                <option value="code">학수번호순</option>
-                <option value="title">과목명순</option>
-                <option value="detail">정보 완성도순</option>
-              </select>
-            </label>
+            <div><p><strong id="resultCount">0</strong>개 과목</p><p id="activeFilterSummary" class="muted">전체 과목</p></div>
+            <label><span class="sr-only">정렬</span><select id="sortSelect"><option value="schedule">요일·교시순</option><option value="code">학수번호순</option><option value="title">과목명순</option></select></label>
           </div>
-
           <div id="courseGrid" class="course-grid" aria-live="polite"></div>
-          <div id="emptyState" class="empty-state" hidden>
-            <strong>조건에 맞는 과목이 없습니다.</strong>
-            <p>필터를 줄이거나 검색어를 바꿔보세요.</p>
-          </div>
+          <div id="emptyState" class="empty-state" hidden><strong>조건에 맞는 과목이 없습니다.</strong><p>필터를 줄이거나 검색어를 바꿔보세요.</p></div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div>
-        <strong>KU SW·AI 과목 탐색기</strong>
-        <p>학생이 정리한 비공식 서비스입니다. 최종 수강 정보는 학교 시스템에서 확인하세요.</p>
-      </div>
-      <p>개인 연락처는 공개하지 않습니다.</p>
-    </footer>
+    <footer><div><strong>KU SW·AI 과목 탐색기</strong><p>학생이 강의계획서를 바탕으로 정리한 비공식 서비스입니다. 최종 수강 정보는 학교 시스템에서 확인하세요.</p></div><a href="https://gscit.korea.ac.kr/gscit/intro/faculty_futlltime_computer.do" target="_blank" rel="noreferrer">교수 정보 출처 · 고려대학교</a></footer>
 
-    <dialog id="courseDialog" class="detail-dialog">
-      <div id="courseDetail"></div>
-    </dialog>
-
-    <dialog id="compareDialog" class="compare-dialog">
-      <div class="dialog-bar">
-        <div>
-          <p class="eyebrow">최대 3개 과목</p>
-          <h2>과목 비교</h2>
-        </div>
-        <button class="icon-button" type="button" data-close-dialog="compareDialog" aria-label="닫기">×</button>
-      </div>
-      <div id="compareContent"></div>
-    </dialog>
+    <dialog id="courseDialog" class="detail-dialog"><div id="courseDetail"></div></dialog>
+    <dialog id="compareDialog" class="compare-dialog"><div class="dialog-bar"><div><p class="eyebrow">최대 3개 과목</p><h2>과목 비교</h2></div><button class="icon-button" type="button" data-close-dialog="compareDialog" aria-label="닫기">×</button></div><div id="compareContent"></div></dialog>
+    <dialog id="timetableDialog" class="timetable-dialog"><div class="dialog-bar"><div><p class="eyebrow">학교 게시 원본</p><h2>2026학년도 2학기 강의시간표</h2></div><button class="icon-button" type="button" data-close-dialog="timetableDialog" aria-label="닫기">×</button></div><div class="timetable-image-wrap"><img src="./assets/2026-2-official-timetable.png" alt="SW·AI융합대학원 2026학년도 2학기 공식 강의시간표" /></div></dialog>
 
     <template id="courseCardTemplate">
       <article class="course-card">
-        <div class="card-topline">
-          <span class="department-badge"></span>
-          <span class="status-badge"></span>
-        </div>
-        <p class="course-code"></p>
-        <h3 class="course-title"></h3>
-        <p class="course-instructor"></p>
-        <div class="schedule-box"></div>
-        <div class="topic-list"></div>
-        <div class="card-actions">
-          <button class="secondary-button detail-button" type="button">상세 보기</button>
-          <label class="compare-check">
-            <input type="checkbox" />
-            <span>비교</span>
-          </label>
-        </div>
+        <div class="card-topline"><span class="department-badge"></span><span class="course-code"></span></div>
+        <div class="professor-row"><div class="professor-avatar"></div><div><h3 class="course-title"></h3><p class="course-instructor"></p></div></div>
+        <div class="schedule-box"></div><p class="course-summary"></p><div class="topic-list"></div>
+        <div class="card-actions"><button class="secondary-button detail-button" type="button">강의계획 보기</button><label class="compare-check"><input type="checkbox" /><span>비교 담기</span></label></div>
       </article>
     </template>
-
-    <script src="./data/courses.js"></script>
-    <script src="./app.js"></script>
+    <script src="./data/courses.js"></script><script src="./app.js"></script>
   </body>
 </html>
