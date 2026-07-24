@@ -869,27 +869,75 @@
                          "periods":  "7-8",
                          "session":  1,
                          "time":  "18:45-20:15",
-                         "room":  "정보통신관 205호",
+                         "room":  "우정관 205호",
                          "delivery":  "비대면"
                      },
         "instructor":  {
                            "name":  "김학승"
                        },
-        "overview":  "최근 인공지능의 기본 기법과 활용을 학습하고, 다양한 AI 응용시스템의 설계·사용 방식과 기술적·사회적 영향을 다룬다.",
+        "overview":  "인공지능의 기본 개념을 이해하고 전통적인 인공지능부터 생성형 AI, 강화학습, 범용인공지능까지 폭넓게 살펴보는 입문 과목이다. 이후의 전문 과목에서 접할 주제와 개념을 조망하며, 인공지능과 머신러닝 핵심 개념에 이미 익숙한 학생에게는 수강을 권장하지 않는다.",
         "objectives":  [
-                           "최근 인공지능의 기본 기법 이해",
-                           "인공지능 기법의 활용 방법 학습",
-                           "AI 응용시스템의 설계와 사용 방식 이해",
-                           "인공지능의 기술적·사회적 영향 이해"
+                           "인공지능 연구의 핵심 개념 이해",
+                           "최근 인공지능 연구·개발 주제와 쟁점 이해",
+                           "전통적 인공지능과 현대 인공지능의 주요 응용 파악"
                        ],
         "topics":  [
                        "인공지능 개론",
                        "AI 기법",
                        "AI 응용시스템",
-                       "AI 시스템 설계",
-                       "기술적 영향",
-                       "사회적 영향"
+                       "머신러닝",
+                       "딥러닝",
+                       "생성형 AI",
+                       "강화학습",
+                       "범용인공지능",
+                       "AI 쟁점"
                    ],
+        "prerequisite_knowledge":  [],
+        "prerequisite_status":  "선수지식 없음",
+        "references":  [
+                           "매 강의 제공 자료"
+                       ],
+        "assessment":  {
+                           "midterm_exam_percent":  40,
+                           "assignments_percent":  25,
+                           "term_project_percent":  25,
+                           "attendance_percent":  10,
+                           "note":  "중간고사는 대면 출석시험으로 진행하며, 학기말 팀 프로젝트는 발표 방식입니다."
+                       },
+        "assignments":  {
+                            "items":  [
+                                          "본인 관심 영역 또는 주제에 관한 영문 리뷰 페이퍼(3,000단어), 학기 말 제출",
+                                          "학기말 팀 프로젝트 발표(수강인원에 따라 운영 방식 조정)"
+                                      ]
+                        },
+        "project":  {
+                        "team_project":  true,
+                        "presentation":  true
+                    },
+        "weekly_plan":  [
+                            "Introduction & course overview",
+                            "Data types and tasks of AI",
+                            "Statistics recap",
+                            "Core concepts of machine learning I",
+                            "Core concepts of machine learning II",
+                            "Core concepts of deep learning I",
+                            "Core concepts of deep learning II",
+                            "Midterm exam",
+                            "Real-world applications of conventional AI techniques",
+                            "Generative AI",
+                            "Reinforcement learning",
+                            "Recent advancements in AI",
+                            "Contemporary issues of AI",
+                            "Toward artificial general intelligence",
+                            "Student presentation I",
+                            "Student presentation II"
+                        ],
+        "course_notes":  [
+                             "수업은 비대면 방식으로 진행",
+                             "중간고사는 대면 출석시험으로 시행",
+                             "법정공휴일 및 기타 상황에 따른 보강은 비대면 또는 녹화강의로 제공",
+                             "강의 일정과 내용은 수강인원에 따라 조정될 수 있음"
+                         ],
         "credit_rules":  {
                              "for_bdc_student":  "일반선택"
                          },
