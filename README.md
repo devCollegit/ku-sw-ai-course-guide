@@ -2,6 +2,8 @@
 
 고려대학교 SW·AI융합대학원 2026학년도 2학기 강의계획서를 구조화한 비공식 공개 카탈로그입니다.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FdevCollegit%2Fku-sw-ai-course-guide&project-name=ku-sw-ai-course-guide&repository-name=ku-sw-ai-course-guide)
+
 ## 주요 기능
 
 - 학과, 요일, 교시, 수업 방식 필터
