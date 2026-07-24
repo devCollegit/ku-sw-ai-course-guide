@@ -106,10 +106,6 @@
     if (prefs.team === "avoid" && p.team) { score -= 20; cautions.push("팀플 포함"); }
     if (!p.known) { score -= 10; cautions.push("평가기준 미공개"); }
     const exam = midterm(course);
-    if (exam && (prefs.busy === "oct34" || prefs.busy === exam.week)) {
-      score -= 24;
-      cautions.push(`바쁜 기간 중간고사 예상 ${exam.date}`);
-    }
     return { course, score, cautions, midterm: exam };
   }
   function combinations(items) {
@@ -140,7 +136,6 @@
       area: form.area.value,
       assessment: form.assessment.value,
       team: form.team.value,
-      busy: form.busy.value,
       maxExams: form.maxExams.value,
     };
   }
@@ -193,6 +188,6 @@
   if (saved) {
     const form = $("#recommendForm");
     form.querySelectorAll('[name="availableDay"]').forEach((input) => input.checked = saved.days?.includes(input.value));
-    for (const key of ["delivery", "area", "assessment", "team", "busy", "maxExams"]) if (saved[key] != null) form[key].value = saved[key];
+    for (const key of ["delivery", "area", "assessment", "team", "maxExams"]) if (saved[key] != null) form[key].value = saved[key];
   }
 })();
