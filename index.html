@@ -78,7 +78,7 @@
         </div>
         <div class="campus-layout">
           <figure class="campus-map-image">
-            <img src="./assets/campus-class-buildings-map.png" alt="우정정보관, 애기능생활관, 정운오IT교양관 주변 실제 지도" />
+            <img src="./assets/campus-class-buildings-map-marked.png" alt="우정정보관, 애기능생활관, 정운오IT교양관 위치가 표시된 실제 지도" />
             <figcaption>우정정보관은 지도 오른쪽 위, 애기능생활관은 중앙 아래, 정운오IT교양관은 오른쪽 아래에 있습니다.</figcaption>
           </figure>
           <div id="campusBuildings" class="building-list"></div>
@@ -86,7 +86,17 @@
       </section>
     </main>
 
-    <footer><div><strong>KU SW·AI 과목 탐색기</strong><p>학생이 강의계획서를 바탕으로 정리한 비공식 서비스입니다. 최종 수강 정보는 학교 시스템에서 확인하세요.</p></div><a href="https://gscit.korea.ac.kr/gscit/intro/faculty_futlltime_computer.do" target="_blank" rel="noreferrer">교수 정보 출처 · 고려대학교</a></footer>
+    <footer>
+      <div>
+        <strong>KU SW·AI 과목 탐색기</strong>
+        <p>학생이 강의계획서를 바탕으로 정리한 비공식 서비스입니다. 최종 수강 정보는 학교 시스템에서 확인하세요.</p>
+      </div>
+      <div class="footer-links">
+        <a href="http://sugang.korea.ac.kr/graduate" target="_blank" rel="noreferrer">대학원 수강신청 →</a>
+        <span>개발자 조현호</span>
+        <a href="mailto:king89119@korea.ac.kr">king89119@korea.ac.kr</a>
+      </div>
+    </footer>
 
     <dialog id="courseDialog" class="detail-dialog"><div id="courseDetail"></div></dialog>
     <dialog id="compareDialog" class="compare-dialog"><div class="dialog-bar"><div><p class="eyebrow">최대 3개 과목</p><h2>과목 비교</h2></div><button class="icon-button" type="button" data-close-dialog="compareDialog" aria-label="닫기">×</button></div><div id="compareContent"></div></dialog>

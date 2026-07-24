@@ -28,3 +28,26 @@
   text-decoration: none;
   white-space: nowrap;
 }
+
+.footer-links {
+  display: grid;
+  gap: 7px;
+  justify-items: end;
+  text-align: right;
+}
+
+.footer-links span {
+  color: #d8d2c6;
+  font-size: 0.85rem;
+}
+
+.footer-links a {
+  margin: 0;
+}
+
+@media (max-width: 680px) {
+  .footer-links {
+    justify-items: start;
+    text-align: left;
+  }
+}
