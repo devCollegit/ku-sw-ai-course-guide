@@ -33,7 +33,8 @@ const elements = {
   compareDialog: $("#compareDialog"), compareContent: $("#compareContent"), courseDialog: $("#courseDialog"),
   courseDetail: $("#courseDetail"), timetableDialog: $("#timetableDialog"), cardTemplate: $("#courseCardTemplate"),
   mobileCompareBar: $("#mobileCompareBar"), mobileCompareBarCount: $("#mobileCompareBarCount"),
-  mobileCompareNames: $("#mobileCompareNames"), mobileNavCompareCount: $("#mobileNavCompareCount"),
+  mobileCompareNames: $("#mobileCompareNames"), mobileCompareClear: $("#mobileCompareClear"),
+  mobileNavCompareCount: $("#mobileNavCompareCount"),
 };
 const unique = (values) => [...new Set(values.filter(Boolean))];
 const array = (value) => (Array.isArray(value) ? value : []);
@@ -184,8 +185,23 @@ function updateCompareUI() {
   elements.compareCount.textContent = selectedCourses.length;
   if (elements.mobileNavCompareCount) elements.mobileNavCompareCount.textContent = selectedCourses.length;
   if (elements.mobileCompareBarCount) elements.mobileCompareBarCount.textContent = selectedCourses.length;
-  if (elements.mobileCompareNames) elements.mobileCompareNames.textContent = selectedCourses.map((course) => course.title_ko).join(" · ");
+  if (elements.mobileCompareNames) {
+    elements.mobileCompareNames.innerHTML = selectedCourses.map((course) => `<button type="button" data-remove-compare="${course.course_code}" aria-label="${escapeHtml(course.title_ko)} 비교에서 빼기">${escapeHtml(course.title_ko)} <span>×</span></button>`).join("");
+    elements.mobileCompareNames.querySelectorAll("[data-remove-compare]").forEach((button) => button.onclick = () => removeFromCompare(button.dataset.removeCompare));
+  }
   if (elements.mobileCompareBar) elements.mobileCompareBar.hidden = selectedCourses.length === 0;
+}
+function removeFromCompare(code) {
+  state.selected.delete(code);
+  localStorage.setItem("ku-course-compare", JSON.stringify([...state.selected]));
+  updateCompareUI();
+  renderCourses();
+}
+function clearCompare() {
+  state.selected.clear();
+  localStorage.removeItem("ku-course-compare");
+  updateCompareUI();
+  renderCourses();
 }
 function addCoursesToCompare(codes) {
   state.selected = new Set(codes.slice(0, 3));
@@ -228,6 +244,7 @@ function bindEvents() {
   elements.resetFilters.onclick = () => { Object.values(state.filters).filter((v) => v instanceof Set).forEach((set) => set.clear()); state.filters.query = ""; elements.searchInput.value = ""; document.querySelectorAll("[data-filter-type]").forEach((i) => i.checked = false); renderCourses(); };
   $("#compareOpenButton").onclick = () => { renderCompare(); elements.compareDialog.showModal(); };
   document.querySelectorAll("[data-open-compare]").forEach((button) => button.onclick = () => { renderCompare(); elements.compareDialog.showModal(); });
+  if (elements.mobileCompareClear) elements.mobileCompareClear.onclick = clearCompare;
   document.querySelectorAll("[data-open-timetable], #timetableOpenButton").forEach((b) => b.onclick = () => elements.timetableDialog.showModal());
   [elements.courseDialog, elements.compareDialog, elements.timetableDialog].forEach((dialog) => dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); }));
   bindDialogCloseButtons();

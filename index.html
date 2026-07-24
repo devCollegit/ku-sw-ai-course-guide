@@ -164,8 +164,11 @@
     </footer>
 
     <div class="mobile-compare-bar" id="mobileCompareBar" hidden>
-      <div><strong><span id="mobileCompareBarCount">0</span>과목 선택됨</strong><small id="mobileCompareNames"></small></div>
-      <button type="button" data-open-compare>비교하기</button>
+      <div class="mobile-compare-selection">
+        <div class="mobile-compare-heading"><strong><span id="mobileCompareBarCount">0</span>과목 선택됨</strong><button type="button" id="mobileCompareClear">전체 해제</button></div>
+        <div id="mobileCompareNames" class="mobile-compare-chips"></div>
+      </div>
+      <button class="mobile-compare-open" type="button" data-open-compare>비교하기</button>
     </div>
 
     <nav class="mobile-bottom-nav" aria-label="모바일 주요 메뉴">
