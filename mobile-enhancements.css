@@ -229,12 +229,20 @@
   }
 
   .professor-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 11px;
     margin: 13px 0 11px;
   }
 
   .professor-avatar {
-    display: none;
+    display: block;
+  }
+
+  .professor-avatar .avatar-image,
+  .professor-avatar .avatar-fallback {
+    width: 44px;
+    height: 44px;
+    font-size: .78rem;
   }
 
   .course-instructor,
