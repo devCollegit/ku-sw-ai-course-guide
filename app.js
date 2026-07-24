@@ -40,6 +40,7 @@ const overview = (course) => course.overview || course.syllabus_overview || cour
 const scheduleText = (course) => `${course.schedule.day}요일 ${course.schedule.session}교시 · ${course.schedule.time}`;
 const deliveryGroup = (value = "") => value.includes("비대면 중심") || value.includes("병행") ? "병행" : value.includes("비대면") ? "비대면" : "대면";
 const buildingGroup = (room = "") => room.includes("애기능생활관") ? "애기능생활관" : room.includes("정운오IT교양관") ? "정운오IT교양관" : "우정정보관";
+const departmentClass = (department = "") => department.includes("빅데이터") ? "dept-bdc" : department.includes("소프트웨어보안") ? "dept-sws" : department.includes("인공지능") ? "dept-aai" : "dept-cvo";
 
 function avatarHtml(name, large = false) {
   const info = faculty[name];
@@ -71,7 +72,7 @@ function renderSchedule() {
   const cells = ["월", "화", "목"].map((day) => {
     const slots = [1, 2].map((session) => {
       const courses = state.courses.filter((c) => c.schedule.day === day && c.schedule.session === session);
-      return `<div class="schedule-cell"><span class="slot-label">${session}교시</span>${courses.map((c) => `<button type="button" data-course="${c.course_code}"><strong>${escapeHtml(c.title_ko)}</strong><small>${escapeHtml(c.course_code)} · ${escapeHtml(c.instructor.name)}</small></button>`).join("")}</div>`;
+      return `<div class="schedule-cell"><span class="slot-label">${session}교시</span>${courses.map((c) => `<button class="${departmentClass(c.department)}" type="button" data-course="${c.course_code}"><strong>${escapeHtml(c.title_ko)}</strong><small>${escapeHtml(c.course_code)} · ${escapeHtml(c.instructor.name)}</small></button>`).join("")}</div>`;
     }).join("");
     return `<section class="day-column"><h3>${day}요일</h3>${slots}</section>`;
   }).join("");
@@ -92,7 +93,7 @@ function renderCampusGuide() {
       <div>
         <div class="building-card-head"><h3>${building.name}</h3><strong>${courses.length}과목</strong></div>
         <p>${building.alias} · ${rooms.join(" · ")}</p>
-        <div class="building-courses">${courses.map((course) => `<button type="button" data-course="${course.course_code}">${escapeHtml(course.title_ko)}</button>`).join("")}</div>
+        <div class="building-courses">${courses.map((course) => `<button class="${departmentClass(course.department)}" type="button" data-course="${course.course_code}">${escapeHtml(course.title_ko)}</button>`).join("")}</div>
         <a href="${building.map}" target="_blank" rel="noreferrer">네이버 지도에서 보기 →</a>
       </div>
     </article>`;
@@ -104,6 +105,7 @@ function renderCourses() {
   elements.courseGrid.innerHTML = ""; elements.resultCount.textContent = courses.length; elements.emptyState.hidden = Boolean(courses.length);
   for (const course of courses) {
     const node = elements.cardTemplate.content.cloneNode(true);
+    node.querySelector(".course-card").classList.add(departmentClass(course.department));
     node.querySelector(".department-badge").textContent = course.department.replace("융합학과", "");
     node.querySelector(".course-code").textContent = `${course.course_code} · ${course.credits}학점`;
     node.querySelector(".course-title").textContent = course.title_ko;
