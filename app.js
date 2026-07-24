@@ -39,6 +39,7 @@ const topics = (course) => unique([...array(course.topics), ...array(course.topi
 const overview = (course) => course.overview || course.syllabus_overview || course.catalog_overview || "강의 소개가 제공되지 않은 과목입니다.";
 const scheduleText = (course) => `${course.schedule.day}요일 ${course.schedule.session}교시 · ${course.schedule.time}`;
 const deliveryGroup = (value = "") => value.includes("비대면 중심") || value.includes("병행") ? "병행" : value.includes("비대면") ? "비대면" : "대면";
+const buildingGroup = (room = "") => room.includes("애기능생활관") ? "애기능생활관" : room.includes("정운오IT교양관") ? "정운오IT교양관" : "우정정보관";
 
 function avatarHtml(name, large = false) {
   const info = faculty[name];
@@ -76,6 +77,27 @@ function renderSchedule() {
   }).join("");
   $("#weeklySchedule").innerHTML = cells;
   document.querySelectorAll("[data-course]").forEach((button) => button.addEventListener("click", () => openCourse(button.dataset.course)));
+}
+function renderCampusGuide() {
+  const buildings = [
+    { name: "우정정보관", alias: "시간표 표기: 정보통신관·우정관", map: "https://map.naver.com/p/search/고려대학교%20우정정보관" },
+    { name: "애기능생활관", alias: "301호·302호", map: "https://map.naver.com/p/search/고려대학교%20애기능생활관" },
+    { name: "정운오IT교양관", alias: "609호·610호", map: "https://map.naver.com/p/search/고려대학교%20정운오IT교양관" },
+  ];
+  $("#campusBuildings").innerHTML = buildings.map((building, index) => {
+    const courses = state.courses.filter((course) => buildingGroup(course.schedule.room) === building.name);
+    const rooms = unique(courses.map((course) => course.schedule.room.replace(/^(정보통신관|우정관|우정정보관|애기능생활관|정운오IT교양관)\s*/, "")));
+    return `<article class="building-card">
+      <span class="building-number">${index + 1}</span>
+      <div>
+        <div class="building-card-head"><h3>${building.name}</h3><strong>${courses.length}과목</strong></div>
+        <p>${building.alias} · ${rooms.join(" · ")}</p>
+        <div class="building-courses">${courses.map((course) => `<button type="button" data-course="${course.course_code}">${escapeHtml(course.title_ko)}</button>`).join("")}</div>
+        <a href="${building.map}" target="_blank" rel="noreferrer">네이버 지도에서 보기 →</a>
+      </div>
+    </article>`;
+  }).join("");
+  document.querySelectorAll("#campusBuildings [data-course]").forEach((button) => button.addEventListener("click", () => openCourse(button.dataset.course)));
 }
 function renderCourses() {
   const courses = sortedCourses(filteredCourses());
@@ -168,7 +190,7 @@ async function init() {
   try {
     state.courses = Array.isArray(window.COURSES) ? window.COURSES : await (await fetch(DATA_URL)).json();
     state.selected = new Set([...state.selected].filter((code) => state.courses.some((c) => c.course_code === code)));
-    setupFilters(); renderSchedule(); bindEvents(); elements.compareCount.textContent = state.selected.size; renderCourses();
+    setupFilters(); renderSchedule(); renderCampusGuide(); bindEvents(); elements.compareCount.textContent = state.selected.size; renderCourses();
   } catch (error) { elements.courseGrid.innerHTML = `<div class="notice-box">과목 데이터를 불러오지 못했습니다: ${escapeHtml(error.message)}</div>`; }
 }
 init();
