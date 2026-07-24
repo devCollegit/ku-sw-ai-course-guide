@@ -167,6 +167,14 @@ function toggleCompare(code, input) {
   input.checked ? state.selected.add(code) : state.selected.delete(code);
   localStorage.setItem("ku-course-compare", JSON.stringify([...state.selected])); elements.compareCount.textContent = state.selected.size; renderCourses();
 }
+function addCoursesToCompare(codes) {
+  state.selected = new Set(codes.slice(0, 3));
+  localStorage.setItem("ku-course-compare", JSON.stringify([...state.selected]));
+  elements.compareCount.textContent = state.selected.size;
+  renderCourses();
+  renderCompare();
+  elements.compareDialog.showModal();
+}
 function comparisonConflict(courses) {
   for (let i = 0; i < courses.length; i++) for (let j = i + 1; j < courses.length; j++) if (courses[i].schedule.day === courses[j].schedule.day && courses[i].schedule.session === courses[j].schedule.session) return `${courses[i].title_ko}과(와) ${courses[j].title_ko}의 시간이 겹칩니다.`; return "";
 }
@@ -195,4 +203,5 @@ async function init() {
     setupFilters(); renderSchedule(); renderCampusGuide(); bindEvents(); elements.compareCount.textContent = state.selected.size; renderCourses();
   } catch (error) { elements.courseGrid.innerHTML = `<div class="notice-box">과목 데이터를 불러오지 못했습니다: ${escapeHtml(error.message)}</div>`; }
 }
+window.courseGuide = { openCourse, addCoursesToCompare };
 init();

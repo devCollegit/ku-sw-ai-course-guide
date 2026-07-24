@@ -8,11 +8,13 @@
     <title>KU SW·AI 과목 탐색기</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./map.css" />
+    <link rel="stylesheet" href="./recommendation.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top"><span class="brand-mark">KU</span><span><strong>SW·AI 과목 탐색기</strong><small>2026학년도 2학기</small></span></a>
       <nav class="header-actions" aria-label="주요 메뉴">
+        <a class="ghost-button recommend-nav" href="#recommend">맞춤 추천</a>
         <button class="ghost-button" id="timetableOpenButton" type="button">공식 시간표</button>
         <button class="compare-button" id="compareOpenButton" type="button">비교함 <span id="compareCount">0</span></button>
       </nav>
@@ -34,6 +36,62 @@
           <strong>19</strong><span>개 개설 과목</span>
           <div class="mini-facts"><span>월 · 화 · 목</span><span>18:45—21:50</span><span>9월 1일 개강</span></div>
         </div>
+      </section>
+
+      <section class="recommend-section" id="recommend" aria-labelledby="recommendTitle">
+        <div class="recommend-intro">
+          <p class="eyebrow">비용 0원 · 데이터 기반 추천</p>
+          <h2 id="recommendTitle">나에게 맞는 3과목 찾기</h2>
+          <p>시험·과제·팀플과 개인 일정을 함께 봅니다. 강의계획서가 불완전한 항목은 없다고 단정하지 않고 <strong>미확인</strong>으로 안내해요.</p>
+        </div>
+
+        <div class="recommend-shell">
+          <div class="recommend-quick">
+            <h3>무엇이 궁금하세요?</h3>
+            <div class="quick-question-list" id="quickQuestions">
+              <button type="button" data-question="exam-only">시험만 보는 과목</button>
+              <button type="button" data-question="no-assignment">과제 없는 과목</button>
+              <button type="button" data-question="no-team">팀플 없는 과목</button>
+              <button type="button" data-question="low-exam">시험 비중 낮은 과목</button>
+              <button type="button" data-question="face-to-face">대면 과목만</button>
+              <button type="button" data-question="tuesday-first">화요일 1교시</button>
+            </div>
+            <label class="recommend-query">
+              <span>직접 물어보기</span>
+              <div><input id="recommendQuery" type="text" placeholder="예: 팀플 없고 시험 비중 낮은 대면 과목" /><button id="recommendQueryButton" type="button">찾기</button></div>
+            </label>
+            <div id="quickResults" class="quick-results" aria-live="polite">
+              <p>위 질문을 누르거나 직접 조건을 입력해 보세요.</p>
+            </div>
+          </div>
+
+          <form id="recommendForm" class="recommend-form">
+            <div class="form-heading"><div><span>맞춤 조건</span><h3>내 상황 알려주기</h3></div><button id="recommendReset" type="button">초기화</button></div>
+
+            <fieldset>
+              <legend>1. 가능한 요일 <small>복수 선택</small></legend>
+              <div class="recommend-options compact">
+                <label><input type="checkbox" name="availableDay" value="월" checked /><span>월</span></label>
+                <label><input type="checkbox" name="availableDay" value="화" checked /><span>화</span></label>
+                <label><input type="checkbox" name="availableDay" value="목" checked /><span>목</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-grid">
+              <label><span>2. 수업 방식</span><select name="delivery"><option value="any">상관없음</option><option value="대면">대면 선호</option><option value="비대면">비대면 선호</option></select></label>
+              <label><span>3. 관심 분야</span><select name="area"><option value="any">폭넓게 배우기</option><option value="foundation">AI·ML 기초</option><option value="nlp">NLP·LLM·검색</option><option value="data">데이터 분석</option><option value="deep">딥러닝</option><option value="privacy">프라이버시</option><option value="project">실무 프로젝트</option></select></label>
+              <label><span>4. 선호 평가</span><select name="assessment"><option value="balanced">균형</option><option value="exam">시험 중심</option><option value="assignment">과제·보고서 중심</option><option value="project">프로젝트 중심</option></select></label>
+              <label><span>5. 팀플</span><select name="team"><option value="any">상관없음</option><option value="avoid">가능하면 피하기</option><option value="exclude">확인된 팀플 제외</option></select></label>
+              <label><span>6. 바쁜 기간</span><select name="busy"><option value="none">특별히 없음</option><option value="oct3">10월 3주차</option><option value="oct4">10월 4주차</option><option value="oct34">10월 3·4주차</option></select></label>
+              <label><span>7. 한 주 최대 시험</span><select name="maxExams"><option value="3">제한 없음</option><option value="2">최대 2개</option><option value="1">최대 1개</option></select></label>
+            </div>
+
+            <button class="recommend-submit" type="submit">내게 맞는 3과목 조합 보기</button>
+            <p class="recommend-note">시험일은 공식 시험기간과 정규 수업 요일을 이용한 예상치이며 실제 일정은 담당교수 공지를 확인해야 합니다.</p>
+          </form>
+        </div>
+
+        <div id="recommendResults" class="recommend-results" hidden aria-live="polite"></div>
       </section>
 
       <section class="schedule-overview" aria-labelledby="scheduleTitle">
@@ -110,6 +168,6 @@
         <div class="card-actions"><button class="secondary-button detail-button" type="button">강의계획 보기</button><label class="compare-check"><input type="checkbox" /><span>비교 담기</span></label></div>
       </article>
     </template>
-    <script src="./data/courses.js"></script><script src="./app.js"></script>
+    <script src="./data/courses.js"></script><script src="./app.js"></script><script src="./recommender.js"></script>
   </body>
 </html>
