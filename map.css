@@ -1,0 +1,30 @@
+.campus-map-image {
+  overflow: hidden;
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgb(65 39 29 / 6%);
+}
+
+.campus-map-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1004 / 680;
+  object-fit: cover;
+}
+
+.campus-map-image figcaption {
+  padding: 12px 15px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
