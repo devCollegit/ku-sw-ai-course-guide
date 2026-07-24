@@ -101,6 +101,11 @@
           <div><p class="eyebrow">한눈에 보는 시간표</p><h2 id="scheduleTitle">요일과 교시로 먼저 좁혀보세요</h2></div>
           <button class="ghost-button" type="button" data-open-timetable>공식 원본 크게 보기</button>
         </div>
+        <div class="mobile-day-tabs" role="tablist" aria-label="요일 선택">
+          <button class="active" type="button" data-schedule-day="월" role="tab" aria-selected="true">월</button>
+          <button type="button" data-schedule-day="화" role="tab" aria-selected="false">화</button>
+          <button type="button" data-schedule-day="목" role="tab" aria-selected="false">목</button>
+        </div>
         <div id="weeklySchedule" class="weekly-schedule"></div>
       </section>
 
@@ -157,6 +162,18 @@
         <a href="mailto:king89119@korea.ac.kr">king89119@korea.ac.kr</a>
       </div>
     </footer>
+
+    <div class="mobile-compare-bar" id="mobileCompareBar" hidden>
+      <div><strong><span id="mobileCompareBarCount">0</span>과목 선택됨</strong><small id="mobileCompareNames"></small></div>
+      <button type="button" data-open-compare>비교하기</button>
+    </div>
+
+    <nav class="mobile-bottom-nav" aria-label="모바일 주요 메뉴">
+      <a href="#schedule"><span>▦</span>시간표</a>
+      <a href="#catalog"><span>⌕</span>과목</a>
+      <a href="#recommend"><span>✦</span>맞춤 추천</a>
+      <button type="button" data-open-compare><span>⇄</span>비교함 <b id="mobileNavCompareCount">0</b></button>
+    </nav>
 
     <dialog id="courseDialog" class="detail-dialog"><div id="courseDetail"></div></dialog>
     <dialog id="compareDialog" class="compare-dialog"><div class="dialog-bar"><div><p class="eyebrow">최대 3개 과목</p><h2>과목 비교</h2></div><button class="icon-button" type="button" data-close-dialog="compareDialog" aria-label="닫기">×</button></div><div id="compareContent"></div></dialog>

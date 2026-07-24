@@ -4,6 +4,12 @@
   white-space: nowrap;
 }
 
+.mobile-day-tabs,
+.mobile-bottom-nav,
+.mobile-compare-bar {
+  display: none;
+}
+
 #recommend,
 #schedule,
 #catalog {
@@ -59,6 +65,8 @@
   .site-header {
     min-height: auto;
     padding-block: 10px 8px;
+    align-items: center;
+    flex-direction: row;
   }
 
   .brand-mark {
@@ -74,9 +82,20 @@
     font-size: .74rem;
   }
 
+  .header-actions {
+    width: auto;
+    padding: 0;
+    overflow: visible;
+  }
+
   .header-actions .ghost-button,
+  .header-actions .header-nav-link {
+    display: none;
+  }
+
   .header-actions .compare-button {
     display: inline-flex;
+    min-height: 42px;
     font-size: .84rem;
   }
 
@@ -109,13 +128,89 @@
     padding: 20px 17px;
   }
 
+  .schedule-overview .section-heading {
+    margin-bottom: 16px;
+  }
+
+  .schedule-overview .section-heading .ghost-button {
+    display: none;
+  }
+
+  .mobile-day-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 5px;
+    background: var(--paper);
+    border-radius: 13px;
+  }
+
+  .mobile-day-tabs button {
+    min-height: 43px;
+    color: var(--muted);
+    border: 0;
+    background: transparent;
+    border-radius: 10px;
+    font-weight: 800;
+  }
+
+  .mobile-day-tabs button.active {
+    color: #fff;
+    background: #272221;
+  }
+
+  .weekly-schedule {
+    display: block;
+    overflow: visible;
+  }
+
+  .weekly-schedule .day-column {
+    display: none;
+  }
+
+  .weekly-schedule .day-column.mobile-active {
+    display: block;
+  }
+
+  .weekly-schedule .day-column > h3 {
+    display: none;
+  }
+
+  .schedule-cell {
+    min-height: 92px;
+    padding: 38px 9px 8px;
+  }
+
+  .schedule-cell button {
+    min-height: 54px;
+    padding: 10px 12px;
+  }
+
+  .schedule-cell strong {
+    font-size: .92rem;
+  }
+
+  .schedule-cell small {
+    font-size: .76rem;
+  }
+
   .course-card {
     min-height: 0;
-    padding: 20px 18px;
+    padding: 17px 16px;
   }
 
   .course-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .professor-row {
+    grid-template-columns: 1fr;
+    margin: 13px 0 11px;
+  }
+
+  .professor-avatar {
+    display: none;
   }
 
   .course-instructor,
@@ -125,7 +220,23 @@
   }
 
   .course-summary {
-    line-height: 1.68;
+    display: none;
+  }
+
+  .course-card .topic-list {
+    margin: 10px 0 14px;
+  }
+
+  .course-card .topic-list .tag:nth-child(n+3) {
+    display: none;
+  }
+
+  .schedule-box {
+    padding: 10px 12px;
+  }
+
+  .card-actions {
+    gap: 10px;
   }
 
   .secondary-button,
@@ -165,5 +276,125 @@
   .recommend-query button,
   .recommend-submit {
     min-height: 46px;
+  }
+
+  body {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+
+  body:has(.mobile-compare-bar:not([hidden])) {
+    padding-bottom: calc(150px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-bottom-nav {
+    position: fixed;
+    z-index: 50;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+    background: rgb(255 255 255 / 96%);
+    box-shadow: 0 -8px 28px rgb(65 39 29 / 10%);
+    backdrop-filter: blur(16px);
+  }
+
+  .mobile-bottom-nav a,
+  .mobile-bottom-nav button {
+    position: relative;
+    display: flex;
+    min-height: 52px;
+    padding: 5px 2px;
+    color: var(--muted);
+    border: 0;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3px;
+    text-decoration: none;
+    font-size: .69rem;
+    font-weight: 750;
+  }
+
+  .mobile-bottom-nav a > span,
+  .mobile-bottom-nav button > span {
+    color: var(--ink);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .mobile-bottom-nav b {
+    position: absolute;
+    top: 1px;
+    left: calc(50% + 8px);
+    display: grid;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    color: #fff;
+    background: var(--crimson);
+    border-radius: 999px;
+    place-items: center;
+    font-size: .64rem;
+  }
+
+  .mobile-compare-bar {
+    position: fixed;
+    z-index: 49;
+    right: 12px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    left: 12px;
+    display: flex;
+    min-height: 64px;
+    padding: 10px 11px 10px 15px;
+    color: #fff;
+    background: #272221;
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgb(0 0 0 / 25%);
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .mobile-compare-bar[hidden] {
+    display: none;
+  }
+
+  .mobile-compare-bar > div {
+    min-width: 0;
+  }
+
+  .mobile-compare-bar strong,
+  .mobile-compare-bar small {
+    display: block;
+  }
+
+  .mobile-compare-bar small {
+    overflow: hidden;
+    max-width: 58vw;
+    margin-top: 3px;
+    color: #d5cfcb;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: .7rem;
+  }
+
+  .mobile-compare-bar button {
+    min-height: 42px;
+    padding: 0 14px;
+    color: var(--crimson);
+    border: 0;
+    background: #fff;
+    border-radius: 11px;
+    flex: 0 0 auto;
+    font-weight: 850;
+  }
+
+  dialog[open] ~ .mobile-bottom-nav,
+  dialog[open] ~ .mobile-compare-bar {
+    visibility: hidden;
   }
 }

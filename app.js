@@ -22,6 +22,7 @@ const state = {
   filters: { query: "", departments: new Set(), days: new Set(), sessions: new Set(), deliveries: new Set() },
   selected: new Set(JSON.parse(localStorage.getItem("ku-course-compare") || "[]")),
   sort: "schedule",
+  mobileScheduleDay: "월",
 };
 const $ = (selector) => document.querySelector(selector);
 const elements = {
@@ -31,6 +32,8 @@ const elements = {
   sortSelect: $("#sortSelect"), activeFilterSummary: $("#activeFilterSummary"), compareCount: $("#compareCount"),
   compareDialog: $("#compareDialog"), compareContent: $("#compareContent"), courseDialog: $("#courseDialog"),
   courseDetail: $("#courseDetail"), timetableDialog: $("#timetableDialog"), cardTemplate: $("#courseCardTemplate"),
+  mobileCompareBar: $("#mobileCompareBar"), mobileCompareBarCount: $("#mobileCompareBarCount"),
+  mobileCompareNames: $("#mobileCompareNames"), mobileNavCompareCount: $("#mobileNavCompareCount"),
 };
 const unique = (values) => [...new Set(values.filter(Boolean))];
 const array = (value) => (Array.isArray(value) ? value : []);
@@ -74,10 +77,19 @@ function renderSchedule() {
       const courses = state.courses.filter((c) => c.schedule.day === day && c.schedule.session === session);
       return `<div class="schedule-cell"><span class="slot-label">${session}교시</span>${courses.map((c) => `<button class="${departmentClass(c.department)}" type="button" data-course="${c.course_code}"><strong>${escapeHtml(c.title_ko)}</strong><small>${escapeHtml(c.course_code)} · ${escapeHtml(c.instructor.name)}</small></button>`).join("")}</div>`;
     }).join("");
-    return `<section class="day-column"><h3>${day}요일</h3>${slots}</section>`;
+    return `<section class="day-column${day === state.mobileScheduleDay ? " mobile-active" : ""}" data-schedule-column="${day}"><h3>${day}요일</h3>${slots}</section>`;
   }).join("");
   $("#weeklySchedule").innerHTML = cells;
   document.querySelectorAll("[data-course]").forEach((button) => button.addEventListener("click", () => openCourse(button.dataset.course)));
+  document.querySelectorAll("[data-schedule-day]").forEach((button) => {
+    const active = button.dataset.scheduleDay === state.mobileScheduleDay;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+    button.onclick = () => {
+      state.mobileScheduleDay = button.dataset.scheduleDay;
+      renderSchedule();
+    };
+  });
 }
 function renderCampusGuide() {
   const buildings = [
@@ -165,12 +177,20 @@ function openCourse(code) {
 function toggleCompare(code, input) {
   if (input.checked && state.selected.size >= 3) { input.checked = false; alert("과목은 최대 3개까지 비교할 수 있습니다."); return; }
   input.checked ? state.selected.add(code) : state.selected.delete(code);
-  localStorage.setItem("ku-course-compare", JSON.stringify([...state.selected])); elements.compareCount.textContent = state.selected.size; renderCourses();
+  localStorage.setItem("ku-course-compare", JSON.stringify([...state.selected])); updateCompareUI(); renderCourses();
+}
+function updateCompareUI() {
+  const selectedCourses = [...state.selected].map((code) => state.courses.find((course) => course.course_code === code)).filter(Boolean);
+  elements.compareCount.textContent = selectedCourses.length;
+  if (elements.mobileNavCompareCount) elements.mobileNavCompareCount.textContent = selectedCourses.length;
+  if (elements.mobileCompareBarCount) elements.mobileCompareBarCount.textContent = selectedCourses.length;
+  if (elements.mobileCompareNames) elements.mobileCompareNames.textContent = selectedCourses.map((course) => course.title_ko).join(" · ");
+  if (elements.mobileCompareBar) elements.mobileCompareBar.hidden = selectedCourses.length === 0;
 }
 function addCoursesToCompare(codes) {
   state.selected = new Set(codes.slice(0, 3));
   localStorage.setItem("ku-course-compare", JSON.stringify([...state.selected]));
-  elements.compareCount.textContent = state.selected.size;
+  updateCompareUI();
   renderCourses();
   renderCompare();
   elements.compareDialog.showModal();
@@ -207,6 +227,7 @@ function bindEvents() {
   elements.sortSelect.onchange = (e) => { state.sort = e.target.value; renderCourses(); };
   elements.resetFilters.onclick = () => { Object.values(state.filters).filter((v) => v instanceof Set).forEach((set) => set.clear()); state.filters.query = ""; elements.searchInput.value = ""; document.querySelectorAll("[data-filter-type]").forEach((i) => i.checked = false); renderCourses(); };
   $("#compareOpenButton").onclick = () => { renderCompare(); elements.compareDialog.showModal(); };
+  document.querySelectorAll("[data-open-compare]").forEach((button) => button.onclick = () => { renderCompare(); elements.compareDialog.showModal(); });
   document.querySelectorAll("[data-open-timetable], #timetableOpenButton").forEach((b) => b.onclick = () => elements.timetableDialog.showModal());
   [elements.courseDialog, elements.compareDialog, elements.timetableDialog].forEach((dialog) => dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); }));
   bindDialogCloseButtons();
@@ -215,7 +236,7 @@ async function init() {
   try {
     state.courses = Array.isArray(window.COURSES) ? window.COURSES : await (await fetch(DATA_URL)).json();
     state.selected = new Set([...state.selected].filter((code) => state.courses.some((c) => c.course_code === code)));
-    setupFilters(); renderSchedule(); renderCampusGuide(); bindEvents(); elements.compareCount.textContent = state.selected.size; renderCourses();
+    setupFilters(); renderSchedule(); renderCampusGuide(); bindEvents(); updateCompareUI(); renderCourses();
   } catch (error) { elements.courseGrid.innerHTML = `<div class="notice-box">과목 데이터를 불러오지 못했습니다: ${escapeHtml(error.message)}</div>`; }
 }
 window.courseGuide = { openCourse, addCoursesToCompare };
