@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="./map.css" />
     <link rel="stylesheet" href="./recommendation.css" />
     <link rel="stylesheet" href="./compare-mobile.css" />
+    <link rel="stylesheet" href="./mobile-enhancements.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top"><span class="brand-mark">KU</span><span><strong>SW·AI 과목 탐색기</strong><small>2026학년도 2학기</small></span></a>
       <nav class="header-actions" aria-label="주요 메뉴">
+        <a class="ghost-button header-nav-link" href="#schedule">한눈에 보는 시간표</a>
         <a class="ghost-button recommend-nav" href="#recommend">맞춤 추천</a>
+        <a class="ghost-button header-nav-link" href="#catalog">강의자료</a>
         <button class="ghost-button" id="timetableOpenButton" type="button">공식 시간표</button>
         <button class="compare-button" id="compareOpenButton" type="button">비교함 <span id="compareCount">0</span></button>
       </nav>
@@ -93,7 +96,7 @@
         <div id="recommendResults" class="recommend-results" hidden aria-live="polite"></div>
       </section>
 
-      <section class="schedule-overview" aria-labelledby="scheduleTitle">
+      <section class="schedule-overview" id="schedule" aria-labelledby="scheduleTitle">
         <div class="section-heading">
           <div><p class="eyebrow">한눈에 보는 시간표</p><h2 id="scheduleTitle">요일과 교시로 먼저 좁혀보세요</h2></div>
           <button class="ghost-button" type="button" data-open-timetable>공식 원본 크게 보기</button>

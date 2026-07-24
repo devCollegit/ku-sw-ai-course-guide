@@ -1,0 +1,169 @@
+.header-nav-link {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#recommend,
+#schedule,
+#catalog {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    align-items: stretch;
+    padding-inline: 18px;
+    flex-direction: column;
+  }
+
+  .brand {
+    align-self: flex-start;
+  }
+
+  .header-actions {
+    width: calc(100vw - 36px);
+    padding: 8px 0 2px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .header-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-actions .ghost-button,
+  .header-actions .compare-button {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 9px 13px;
+    align-items: center;
+    flex: 0 0 auto;
+    font-size: .82rem;
+    white-space: nowrap;
+  }
+
+  #recommend,
+  #schedule,
+  #catalog {
+    scroll-margin-top: 132px;
+  }
+}
+
+@media (max-width: 680px) {
+  body {
+    font-size: 16px;
+  }
+
+  .site-header {
+    min-height: auto;
+    padding-block: 10px 8px;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand strong {
+    font-size: .94rem;
+  }
+
+  .brand small {
+    font-size: .74rem;
+  }
+
+  .header-actions .ghost-button,
+  .header-actions .compare-button {
+    display: inline-flex;
+    font-size: .84rem;
+  }
+
+  main {
+    width: min(100% - 24px, 1240px);
+  }
+
+  .hero {
+    padding: 38px 0 42px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 12vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .hero-copy {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .section-heading h2,
+  .recommend-intro h2 {
+    font-size: 1.6rem;
+    line-height: 1.28;
+  }
+
+  .schedule-overview,
+  .recommend-section {
+    padding: 20px 17px;
+  }
+
+  .course-card {
+    min-height: 0;
+    padding: 20px 18px;
+  }
+
+  .course-title {
+    font-size: 1.5rem;
+  }
+
+  .course-instructor,
+  .schedule-box,
+  .course-summary {
+    font-size: .92rem;
+  }
+
+  .course-summary {
+    line-height: 1.68;
+  }
+
+  .secondary-button,
+  .compare-check {
+    min-height: 44px;
+    font-size: .9rem;
+  }
+
+  .filters {
+    padding: 19px 17px;
+  }
+
+  .search-field input,
+  select {
+    min-height: 46px;
+    font-size: 1rem;
+  }
+
+  .chip-list span,
+  .check-list label {
+    font-size: .9rem;
+  }
+
+  .recommend-quick,
+  .recommend-form {
+    padding: 19px 16px;
+  }
+
+  .quick-question-list button,
+  .recommend-options span {
+    min-height: 42px;
+    padding: 10px 12px;
+    font-size: .86rem;
+  }
+
+  .recommend-query input,
+  .recommend-query button,
+  .recommend-submit {
+    min-height: 46px;
+  }
+}
