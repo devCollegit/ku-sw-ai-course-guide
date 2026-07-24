@@ -13,12 +13,17 @@
                          "periods":  "9-10",
                          "session":  2,
                          "time":  "20:20-21:50",
-                         "room":  "우정관 205",
+                         "room":  "정보통신관 205호",
                          "delivery":  "대면"
                      },
         "instructor":  {
                            "name":  "강성구"
                        },
+        "overview":  "머신러닝 기법을 사용하여 대규모 텍스트 데이터의 표현, 모델링 및 분석 방법을 학습한다. 희소 모델에서 단어 임베딩과 트랜스포머 기반 문맥 표현으로 확장하고, 텍스트 분류, 준지도·다중 작업 학습, 도메인 적응, 어휘·뉴럴·LLM 향상 검색을 실제 문제에 적용한다.",
+        "prerequisite_knowledge":  [
+                                        "머신러닝에 대한 기본적인 이해",
+                                        "딥러닝에 대한 기본적인 이해"
+                                    ],
         "objectives":  [
                            "머신러닝 기반 대규모 텍스트 데이터의 표현, 모델링, 분석에 필요한 핵심 개념과 방법론 이해",
                            "희소 모델, 단어 임베딩, 트랜스포머 기반 문맥 언어 모델 등 다양한 텍스트 표현 기술 습득",
@@ -39,13 +44,28 @@
                        "뉴럴 검색",
                        "LLM 향상 검색"
                    ],
+        "references":  [
+                           "Jurafsky and Martin, Speech and Language Processing",
+                           "Hamilton, Graph Representation Learning"
+                       ],
+        "assessment":  {
+                           "midterm_exam_percent":  50,
+                           "final_exam_percent":  50
+                       },
         "weekly_plan_partial":  [
                                     "강의 소개 및 개요",
                                     "텍스트 표현 방식 1",
                                     "텍스트 표현 방식 2",
                                     "텍스트 표현 방식 3",
                                     "텍스트 분류 1",
-                                    "텍스트 분류 2"
+                                    "텍스트 분류 2",
+                                    "관계 정보 활용 기법 2",
+                                    "관계 정보 활용 기법 3",
+                                    "정보 검색 1",
+                                    "정보 검색 2",
+                                    "정보 검색 3",
+                                    "정보 검색 4",
+                                    "기말고사"
                                 ],
         "data_status":  "partial"
     },
