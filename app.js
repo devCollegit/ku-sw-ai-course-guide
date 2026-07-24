@@ -82,8 +82,8 @@ function renderSchedule() {
 function renderCampusGuide() {
   const buildings = [
     { name: "우정정보관", alias: "시간표 표기: 정보통신관·우정관", map: "https://map.naver.com/p/search/고려대학교%20우정정보관" },
-    { name: "애기능생활관", alias: "301호·302호", map: "https://map.naver.com/p/search/고려대학교%20애기능생활관" },
-    { name: "정운오IT교양관", alias: "609호·610호", map: "https://map.naver.com/p/search/고려대학교%20정운오IT교양관" },
+    { name: "애기능생활관", alias: "", map: "https://map.naver.com/p/search/고려대학교%20애기능생활관" },
+    { name: "정운오IT교양관", alias: "", map: "https://map.naver.com/p/search/고려대학교%20정운오IT교양관" },
   ];
   $("#campusBuildings").innerHTML = buildings.map((building, index) => {
     const courses = state.courses.filter((course) => buildingGroup(course.schedule.room) === building.name);
@@ -92,7 +92,7 @@ function renderCampusGuide() {
       <span class="building-number">${index + 1}</span>
       <div>
         <div class="building-card-head"><h3>${building.name}</h3><strong>${courses.length}과목</strong></div>
-        <p>${building.alias} · ${rooms.join(" · ")}</p>
+        <p>${building.alias ? `${building.alias} · ` : ""}${rooms.join(" · ")}</p>
         <div class="building-courses">${courses.map((course) => `<button class="${departmentClass(course.department)}" type="button" data-course="${course.course_code}">${escapeHtml(course.title_ko)}</button>`).join("")}</div>
         <a href="${building.map}" target="_blank" rel="noreferrer">네이버 지도에서 보기 →</a>
       </div>
