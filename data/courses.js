@@ -1264,10 +1264,7 @@ window.COURSES = [
     },
     "data_status": "minimal",
     "assessment": {
-      "ongoing_assignments_percent": 10,
-      "midterm_exam_percent": 30,
-      "final_exam_percent": 30,
-      "project_percent": 30
+      "note": "평가기준 미공개"
     },
     "assessment_source": "2026_강의계획서_평가기준.xlsx"
   },
