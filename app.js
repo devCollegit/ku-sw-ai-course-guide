@@ -1,4 +1,5 @@
 const DATA_URL = "./data/courses.json";
+const PUBLIC_SITE_URL = "https://ku-sw-ai-course-guide.vercel.app/";
 const dayOrder = { 월: 1, 화: 2, 수: 3, 목: 4, 금: 5 };
 const FACULTY_BASE = "https://gscit.korea.ac.kr/gscit/intro/";
 const faculty = {
@@ -122,7 +123,20 @@ function renderCourses() {
   elements.courseGrid.innerHTML = ""; elements.resultCount.textContent = courses.length; elements.emptyState.hidden = Boolean(courses.length);
   for (const course of courses) {
     const node = elements.cardTemplate.content.cloneNode(true);
-    node.querySelector(".course-card").classList.add(departmentClass(course.department));
+    const card = node.querySelector(".course-card");
+    card.classList.add(departmentClass(course.department));
+    card.tabIndex = 0;
+    card.setAttribute("aria-label", `${course.title_ko} 상세 정보 보기`);
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("button, input, label, a")) return;
+      openCourse(course.course_code);
+    });
+    card.addEventListener("keydown", (event) => {
+      if ((event.key === "Enter" || event.key === " ") && !event.target.closest("button, input, label, a")) {
+        event.preventDefault();
+        openCourse(course.course_code);
+      }
+    });
     const favoriteButton = document.createElement("button");
     favoriteButton.type = "button";
     favoriteButton.className = `favorite-button${state.favorites.has(course.course_code) ? " active" : ""}`;
@@ -178,7 +192,7 @@ function assessmentHtml(course) {
   return `<div class="detail-grid">${facts}</div>${course.assessment.note ? `<div class="notice-box">${escapeHtml(course.assessment.note)}</div>` : ""}`;
 }
 function courseUrl(code) {
-  const url = new URL(window.location.href);
+  const url = new URL(window.location.protocol === "file:" ? PUBLIC_SITE_URL : window.location.href);
   url.searchParams.set("course", code);
   url.hash = "";
   return url.toString();
@@ -219,14 +233,25 @@ async function shareCourse(course) {
     if (navigator.share) {
       await navigator.share(shareData);
       if (status) status.textContent = "공유했습니다.";
-    } else if (navigator.clipboard?.writeText) {
+    } else {
+      await copyCourseLink(course);
+    }
+  } catch (error) {
+    if (error.name !== "AbortError") await copyCourseLink(course);
+  }
+}
+async function copyCourseLink(course) {
+  const url = courseUrl(course.course_code);
+  const status = elements.courseDetail.querySelector(".share-status");
+  try {
+    if (navigator.clipboard?.writeText) {
       await navigator.clipboard.writeText(url);
       if (status) status.textContent = "링크를 복사했습니다.";
     } else {
       window.prompt("아래 링크를 복사해 주세요.", url);
     }
   } catch (error) {
-    if (error.name !== "AbortError" && status) status.textContent = "공유하지 못했습니다. 다시 시도해 주세요.";
+    window.prompt("아래 링크를 복사해 주세요.", url);
   }
 }
 function openCourse(code, updateUrl = true) {
@@ -237,9 +262,10 @@ function openCourse(code, updateUrl = true) {
     <div class="detail-body">${warning}<section class="detail-intro"><div class="faculty-profile">${avatarHtml(c.instructor?.name || "미정", true)}<div><strong>${escapeHtml(c.instructor?.name || "미정")} 교수</strong><span>${escapeHtml(info?.[2] || c.department)}</span>${info ? `<a href="${info[1]}" target="_blank" rel="noreferrer">공식 교수 페이지 →</a>` : '<small>공식 전임교원 사진 미확인</small>'}</div></div><div><p>${escapeHtml(overview(c))}</p><div class="topic-list">${topics(c).slice(0, 12).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div></div></section>
     <section class="detail-section"><h3>수업 정보</h3><div class="detail-grid"><div class="fact-card"><strong>${escapeHtml(scheduleText(c))}</strong><span>${escapeHtml(c.schedule.delivery)}</span></div><div class="fact-card"><strong>${escapeHtml(c.schedule.room)}</strong><span>강의실</span></div><div class="fact-card"><strong>${escapeHtml(c.classification)}</strong><span>${c.credits}학점</span></div><div class="fact-card"><strong>${escapeHtml(c.department)}</strong><span>개설 학과</span></div></div></section>
     <section class="detail-section"><h3>학습 목표</h3>${listHtml(c.objectives)}</section><section class="detail-section"><h3>선수지식</h3>${listHtml(c.prerequisite_knowledge, c.prerequisite_status || "명시된 선수지식이 없습니다.")}</section><section class="detail-section"><h3>평가방법</h3>${assessmentHtml(c)}</section><section class="detail-section"><h3>과제·프로젝트</h3>${listHtml(c.assignments?.items, c.project ? "프로젝트 정보는 있으나 세부 과제 목록은 없습니다." : "공개된 세부 정보가 없습니다.")}</section><section class="detail-section"><h3>교재·참고문헌</h3>${listHtml(c.references)}</section><section class="detail-section"><h3>주차별 계획</h3>${listHtml(c.weekly_plan || c.weekly_plan_partial)}</section>${array(c.course_notes).length ? `<section class="detail-section"><h3>수업 운영 안내</h3>${listHtml(c.course_notes)}</section>` : ""}<p class="source-note">강의계획서와 학교 시간표를 바탕으로 정리했습니다. 수업 정보는 변경될 수 있습니다.</p></div>`;
-  elements.courseDetail.querySelector(".detail-intro").insertAdjacentHTML("beforebegin", `<div class="detail-actions"><button class="detail-action favorite-button${state.favorites.has(code) ? " active" : ""}" type="button" data-favorite-course="${escapeHtml(code)}">${state.favorites.has(code) ? "★ 관심 과목 저장됨" : "☆ 관심 과목 저장"}</button><button class="detail-action" type="button" data-share-course="${escapeHtml(code)}">↗ 카카오톡 등으로 공유</button><span class="share-status" aria-live="polite"></span></div>`);
+  elements.courseDetail.querySelector(".detail-intro").insertAdjacentHTML("beforebegin", `<div class="detail-actions"><button class="detail-action favorite-button${state.favorites.has(code) ? " active" : ""}" type="button" data-favorite-course="${escapeHtml(code)}">${state.favorites.has(code) ? "★ 관심 과목 저장됨" : "☆ 관심 과목 저장"}</button><button class="detail-action" type="button" data-share-course="${escapeHtml(code)}">↗ 공유하기</button><button class="detail-action" type="button" data-copy-course="${escapeHtml(code)}">링크 복사</button><span class="share-status" aria-live="polite"></span></div>`);
   elements.courseDetail.querySelector("[data-favorite-course]").onclick = () => toggleFavorite(code);
   elements.courseDetail.querySelector("[data-share-course]").onclick = () => shareCourse(c);
+  elements.courseDetail.querySelector("[data-copy-course]").onclick = () => copyCourseLink(c);
   if (updateUrl) history.pushState({ course: code }, "", courseUrl(code));
   bindDialogCloseButtons(); if (!elements.courseDialog.open) elements.courseDialog.showModal();
 }
