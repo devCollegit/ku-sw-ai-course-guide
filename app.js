@@ -21,6 +21,8 @@ const state = {
   courses: [],
   filters: { query: "", departments: new Set(), days: new Set(), sessions: new Set(), deliveries: new Set() },
   selected: new Set(JSON.parse(localStorage.getItem("ku-course-compare") || "[]")),
+  favorites: new Set(JSON.parse(localStorage.getItem("ku-course-favorites") || "[]")),
+  favoriteOnly: false,
   sort: "schedule",
   mobileScheduleDay: "월",
 };
@@ -35,6 +37,7 @@ const elements = {
   mobileCompareBar: $("#mobileCompareBar"), mobileCompareBarCount: $("#mobileCompareBarCount"),
   mobileCompareNames: $("#mobileCompareNames"), mobileCompareClear: $("#mobileCompareClear"),
   mobileNavCompareCount: $("#mobileNavCompareCount"),
+  favoriteFilterButton: $("#favoriteFilterButton"), favoriteCount: $("#favoriteCount"),
 };
 const unique = (values) => [...new Set(values.filter(Boolean))];
 const array = (value) => (Array.isArray(value) ? value : []);
@@ -67,7 +70,8 @@ function searchableText(c) {
 }
 function filteredCourses() {
   const f = state.filters;
-  return state.courses.filter((c) => (!f.query || searchableText(c).includes(f.query.toLocaleLowerCase("ko"))) && (!f.departments.size || f.departments.has(c.department)) && (!f.days.size || f.days.has(c.schedule.day)) && (!f.sessions.size || f.sessions.has(`${c.schedule.session}교시`)) && (!f.deliveries.size || f.deliveries.has(deliveryGroup(c.schedule.delivery))));
+  const visibleCourses = state.favoriteOnly ? state.courses.filter((c) => state.favorites.has(c.course_code)) : state.courses;
+  return visibleCourses.filter((c) => (!f.query || searchableText(c).includes(f.query.toLocaleLowerCase("ko"))) && (!f.departments.size || f.departments.has(c.department)) && (!f.days.size || f.days.has(c.schedule.day)) && (!f.sessions.size || f.sessions.has(`${c.schedule.session}교시`)) && (!f.deliveries.size || f.deliveries.has(deliveryGroup(c.schedule.delivery))));
 }
 function sortedCourses(courses) {
   return [...courses].sort((a, b) => state.sort === "code" ? a.course_code.localeCompare(b.course_code) : state.sort === "title" ? a.title_ko.localeCompare(b.title_ko, "ko") : dayOrder[a.schedule.day] - dayOrder[b.schedule.day] || a.schedule.session - b.schedule.session || a.course_code.localeCompare(b.course_code));
@@ -119,6 +123,13 @@ function renderCourses() {
   for (const course of courses) {
     const node = elements.cardTemplate.content.cloneNode(true);
     node.querySelector(".course-card").classList.add(departmentClass(course.department));
+    const favoriteButton = document.createElement("button");
+    favoriteButton.type = "button";
+    favoriteButton.className = `favorite-button${state.favorites.has(course.course_code) ? " active" : ""}`;
+    favoriteButton.setAttribute("aria-label", `${course.title_ko} 관심 과목 ${state.favorites.has(course.course_code) ? "해제" : "저장"}`);
+    favoriteButton.textContent = state.favorites.has(course.course_code) ? "★ 저장됨" : "☆ 관심";
+    favoriteButton.addEventListener("click", () => toggleFavorite(course.course_code));
+    node.querySelector(".card-topline").append(favoriteButton);
     node.querySelector(".department-badge").textContent = course.department.replace("융합학과", "");
     node.querySelector(".course-code").textContent = `${course.course_code} · ${course.credits}학점`;
     node.querySelector(".course-title").textContent = course.title_ko;
@@ -135,6 +146,7 @@ function renderCourses() {
   const labels = [...state.filters.departments, ...state.filters.days, ...state.filters.sessions, ...state.filters.deliveries];
   if (state.filters.query) labels.unshift(`“${state.filters.query}”`);
   elements.activeFilterSummary.textContent = labels.length ? labels.join(" · ") : "전체 과목";
+  updateFavoriteUI();
 }
 function listHtml(items, empty = "등록된 정보가 없습니다.") {
   const values = array(items); return values.length ? `<ul>${values.map((item) => `<li>${escapeHtml(typeof item === "string" ? item : item.title || JSON.stringify(item))}</li>`).join("")}</ul>` : `<p class="muted">${empty}</p>`;
@@ -165,7 +177,59 @@ function assessmentHtml(course) {
   const facts = Object.entries(course.assessment).filter(([k, v]) => k.endsWith("_percent") && typeof v === "number").map(([k, v]) => `<div class="fact-card"><strong>${v}%</strong><span>${labels[k] || k}</span></div>`).join("");
   return `<div class="detail-grid">${facts}</div>${course.assessment.note ? `<div class="notice-box">${escapeHtml(course.assessment.note)}</div>` : ""}`;
 }
-function openCourse(code) {
+function courseUrl(code) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("course", code);
+  url.hash = "";
+  return url.toString();
+}
+function clearCourseUrl() {
+  const url = new URL(window.location.href);
+  if (!url.searchParams.has("course")) return;
+  url.searchParams.delete("course");
+  history.replaceState({}, "", url);
+}
+function toggleFavorite(code) {
+  state.favorites.has(code) ? state.favorites.delete(code) : state.favorites.add(code);
+  localStorage.setItem("ku-course-favorites", JSON.stringify([...state.favorites]));
+  renderCourses();
+  const detailButton = elements.courseDetail.querySelector("[data-favorite-course]");
+  if (detailButton?.dataset.favoriteCourse === code) {
+    const active = state.favorites.has(code);
+    detailButton.classList.toggle("active", active);
+    detailButton.textContent = active ? "★ 관심 과목 저장됨" : "☆ 관심 과목 저장";
+  }
+}
+function updateFavoriteUI() {
+  if (elements.favoriteCount) elements.favoriteCount.textContent = state.favorites.size;
+  if (elements.favoriteFilterButton) {
+    elements.favoriteFilterButton.setAttribute("aria-pressed", String(state.favoriteOnly));
+    elements.favoriteFilterButton.firstChild.textContent = state.favoriteOnly ? "★ 관심 과목만 " : "☆ 관심 과목 ";
+  }
+}
+async function shareCourse(course) {
+  const url = courseUrl(course.course_code);
+  const shareData = {
+    title: `${course.title_ko} | KU SW·AI 과목 탐색기`,
+    text: `${course.title_ko} (${course.course_code}) 강의 정보를 확인해 보세요.`,
+    url,
+  };
+  const status = elements.courseDetail.querySelector(".share-status");
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+      if (status) status.textContent = "공유했습니다.";
+    } else if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(url);
+      if (status) status.textContent = "링크를 복사했습니다.";
+    } else {
+      window.prompt("아래 링크를 복사해 주세요.", url);
+    }
+  } catch (error) {
+    if (error.name !== "AbortError" && status) status.textContent = "공유하지 못했습니다. 다시 시도해 주세요.";
+  }
+}
+function openCourse(code, updateUrl = true) {
   const c = state.courses.find((item) => item.course_code === code); if (!c) return;
   const info = faculty[c.instructor?.name]; const flags = array(c.data_quality_flags);
   const warning = flags.map((f) => `<div class="notice-box"><strong>자료 확인 메모</strong><br />${escapeHtml(f.description)}</div>`).join("");
@@ -173,7 +237,11 @@ function openCourse(code) {
     <div class="detail-body">${warning}<section class="detail-intro"><div class="faculty-profile">${avatarHtml(c.instructor?.name || "미정", true)}<div><strong>${escapeHtml(c.instructor?.name || "미정")} 교수</strong><span>${escapeHtml(info?.[2] || c.department)}</span>${info ? `<a href="${info[1]}" target="_blank" rel="noreferrer">공식 교수 페이지 →</a>` : '<small>공식 전임교원 사진 미확인</small>'}</div></div><div><p>${escapeHtml(overview(c))}</p><div class="topic-list">${topics(c).slice(0, 12).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div></div></section>
     <section class="detail-section"><h3>수업 정보</h3><div class="detail-grid"><div class="fact-card"><strong>${escapeHtml(scheduleText(c))}</strong><span>${escapeHtml(c.schedule.delivery)}</span></div><div class="fact-card"><strong>${escapeHtml(c.schedule.room)}</strong><span>강의실</span></div><div class="fact-card"><strong>${escapeHtml(c.classification)}</strong><span>${c.credits}학점</span></div><div class="fact-card"><strong>${escapeHtml(c.department)}</strong><span>개설 학과</span></div></div></section>
     <section class="detail-section"><h3>학습 목표</h3>${listHtml(c.objectives)}</section><section class="detail-section"><h3>선수지식</h3>${listHtml(c.prerequisite_knowledge, c.prerequisite_status || "명시된 선수지식이 없습니다.")}</section><section class="detail-section"><h3>평가방법</h3>${assessmentHtml(c)}</section><section class="detail-section"><h3>과제·프로젝트</h3>${listHtml(c.assignments?.items, c.project ? "프로젝트 정보는 있으나 세부 과제 목록은 없습니다." : "공개된 세부 정보가 없습니다.")}</section><section class="detail-section"><h3>교재·참고문헌</h3>${listHtml(c.references)}</section><section class="detail-section"><h3>주차별 계획</h3>${listHtml(c.weekly_plan || c.weekly_plan_partial)}</section>${array(c.course_notes).length ? `<section class="detail-section"><h3>수업 운영 안내</h3>${listHtml(c.course_notes)}</section>` : ""}<p class="source-note">강의계획서와 학교 시간표를 바탕으로 정리했습니다. 수업 정보는 변경될 수 있습니다.</p></div>`;
-  bindDialogCloseButtons(); elements.courseDialog.showModal();
+  elements.courseDetail.querySelector(".detail-intro").insertAdjacentHTML("beforebegin", `<div class="detail-actions"><button class="detail-action favorite-button${state.favorites.has(code) ? " active" : ""}" type="button" data-favorite-course="${escapeHtml(code)}">${state.favorites.has(code) ? "★ 관심 과목 저장됨" : "☆ 관심 과목 저장"}</button><button class="detail-action" type="button" data-share-course="${escapeHtml(code)}">↗ 카카오톡 등으로 공유</button><span class="share-status" aria-live="polite"></span></div>`);
+  elements.courseDetail.querySelector("[data-favorite-course]").onclick = () => toggleFavorite(code);
+  elements.courseDetail.querySelector("[data-share-course]").onclick = () => shareCourse(c);
+  if (updateUrl) history.pushState({ course: code }, "", courseUrl(code));
+  bindDialogCloseButtons(); if (!elements.courseDialog.open) elements.courseDialog.showModal();
 }
 function toggleCompare(code, input) {
   if (input.checked && state.selected.size >= 3) { input.checked = false; alert("과목은 최대 3개까지 비교할 수 있습니다."); return; }
@@ -241,19 +309,32 @@ function bindEvents() {
   elements.searchInput.oninput = (e) => { state.filters.query = e.target.value.trim(); renderCourses(); };
   document.querySelectorAll("[data-filter-type]").forEach((input) => input.onchange = () => { const set = state.filters[input.dataset.filterType]; input.checked ? set.add(input.value) : set.delete(input.value); renderCourses(); });
   elements.sortSelect.onchange = (e) => { state.sort = e.target.value; renderCourses(); };
+  if (elements.favoriteFilterButton) elements.favoriteFilterButton.onclick = () => { state.favoriteOnly = !state.favoriteOnly; renderCourses(); };
   elements.resetFilters.onclick = () => { Object.values(state.filters).filter((v) => v instanceof Set).forEach((set) => set.clear()); state.filters.query = ""; elements.searchInput.value = ""; document.querySelectorAll("[data-filter-type]").forEach((i) => i.checked = false); renderCourses(); };
   $("#compareOpenButton").onclick = () => { renderCompare(); elements.compareDialog.showModal(); };
   document.querySelectorAll("[data-open-compare]").forEach((button) => button.onclick = () => { renderCompare(); elements.compareDialog.showModal(); });
   if (elements.mobileCompareClear) elements.mobileCompareClear.onclick = clearCompare;
   document.querySelectorAll("[data-open-timetable], #timetableOpenButton").forEach((b) => b.onclick = () => elements.timetableDialog.showModal());
   [elements.courseDialog, elements.compareDialog, elements.timetableDialog].forEach((dialog) => dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); }));
+  elements.courseDialog.addEventListener("close", clearCourseUrl);
+  window.addEventListener("popstate", () => {
+    const code = new URL(window.location.href).searchParams.get("course");
+    if (code && state.courses.some((course) => course.course_code === code)) {
+      openCourse(code, false);
+    } else if (elements.courseDialog.open) {
+      elements.courseDialog.close();
+    }
+  });
   bindDialogCloseButtons();
 }
 async function init() {
   try {
     state.courses = Array.isArray(window.COURSES) ? window.COURSES : await (await fetch(DATA_URL)).json();
     state.selected = new Set([...state.selected].filter((code) => state.courses.some((c) => c.course_code === code)));
+    state.favorites = new Set([...state.favorites].filter((code) => state.courses.some((c) => c.course_code === code)));
     setupFilters(); renderSchedule(); renderCampusGuide(); bindEvents(); updateCompareUI(); renderCourses();
+    const linkedCourse = new URL(window.location.href).searchParams.get("course");
+    if (linkedCourse) openCourse(linkedCourse, false);
   } catch (error) { elements.courseGrid.innerHTML = `<div class="notice-box">과목 데이터를 불러오지 못했습니다: ${escapeHtml(error.message)}</div>`; }
 }
 window.courseGuide = { openCourse, addCoursesToCompare };
